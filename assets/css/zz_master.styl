@@ -23,7 +23,7 @@ p,a,li,span,h1,h2,h3,h4,h5,h6,input,textarea
 h1,h2,h3,h4,h5,h6,p,span
 	margin-bottom 25px
 h2
-	font-family $shen
+	font-family $patua
 	font-size 62px
 	line-height 78px
 	font-weight 900
@@ -77,22 +77,27 @@ p, .md ul li
 .imagebg
 	.background-image-holder
 		background-position center center
-.bg-pink
-	background-color $pink
+.bg-tan
+	background-color $tan
 	&.bg-t5
-		background-color $pinkt5
-.bg-blue
-	background-color $blue
+		background-color $tant5
+.bg-orange
+	background-color $orange
 	&.bg-t5
-		background-color $bluet5
-.bg-maroon
-	background-color $maroon
+		background-color $oranget5
+.bg-red
+	background-color $red
 	&.bg-t5
-		background-color $maroont5
+		background-color $redt5
+.bg-violet
+	background-color $violet
+	&.bg-t5
+		background-color $violett5
 .bg-purple
 	background-color $purple
 	&.bg-t5
 		background-color $purplet5
+
 .bg-ct > .background-image-holder
 	background-position center top
 .bg-cb > .background-image-holder
@@ -100,30 +105,30 @@ p, .md ul li
 .bg-cc > .background-image-holder
 	background-position center center
 
-.color-pink
-	color $pink
-.color-blue
-	color $blue
-.color-maroon
-	color $maroon
+.color-tan
+	color $tan
+.color-orange
+	color $orange
+.color-red
+	color $red
+.color-violet
+	color $violet
 .color-purple
 	color $purple
-.color-lightblue
-	color $lightblue
 .color-white
 	color $white
 
 .btn
 	border none
 	border-radius 0px
-	&.maroon
-		background-color $maroon
-	&.blue
-		background-color $blue
-	&.lightblue
-		background-color $lightblue
-	&.pink
-		background-color $pink
+	&.tan
+		background-color $tan
+	&.orange
+		background-color $orange
+	&.red
+		background-color $red
+	&.violet
+		background-color $violet
 	&.purple
 		background-color $purple
 	&.white
@@ -137,15 +142,15 @@ p, .md ul li
 	&::before
 		opacity 0.5
 	&.heavy::before
-		opacity 0.9
-	&.pink::before
-		background $pink
-	&.blue::before
-		background $blue
-	&.lightblue::before
-		background $lightblue
-	&.maroon::before
-		background $maroon
+		opacity 0.8
+	&.tan::before
+		background $tan
+	&.orange::before
+		background $orange
+	&.red::before
+		background $red
+	&.violet::before
+		background $violet
 	&.purple::before
 		background $purple
 	&.black::before
@@ -179,7 +184,9 @@ p, .md ul li
 
 
 
-
+.height-50
+	min-height 50vh
+	height 50vh !important
 // --- countdown timer
 #countdown-timer
 	.countdown-section
@@ -194,14 +201,6 @@ p, .md ul li
 				font-family $shen
 				margin-bottom 25px
 				font-size 60px
-			// &.countdown-days
-			// 	color $blue
-			// &.countdown-hours
-			// 	color $maroon
-			// &.countdown-minutes
-			// 	color $pink
-			// &.countdown-seconds
-			// 	color $lightblue
 	@media (max-width:767px)
 		.countdown-section
 			margin 10px 5px
@@ -232,33 +231,30 @@ imgAnglesEven()
 	@media(max-width:767px)
 		padding-bottom -50px
 .angle:not(.btn):not(img):not(.masonry__item):not([class*="col-"])
-	clip-path: polygon(0 0, 100% 200px, 100% 100%, 0 100%);
-	margin-top -200px
-	padding 200px 0
+	clip-path: polygon(0 100px, 100% 0, 100% calc(100% - 100px), 0 100%);
+	margin-top -100px
+	padding 150px 0
 	z-index 2
 	position relative
 	&.footer
 		margin-top -200px
-		padding 200px 0 50px 0
+		padding 100px 0 50px 0
 		@media(max-width:992px)
-			margin-top -100px
-		@media(max-width:767px)
 			margin-top -50px
+		@media(max-width:767px)
+			margin-top -25px
 	@media (max-width 992px)
-		clip-path: polygon(0 0, 100% 100px, 100% 100%, 0 100%);
-		margin-top -100px
+		clip-path: polygon(0 50px, 100% 0, 100% calc(100% - 50px), 0 100%);
+		margin-top -50px
 		padding 100px 0
 		&.footer
-			padding 100px 0 50px 0
+			padding 50px 0 50px 0
 	@media (max-width:767px)
-		clip-path: polygon(0 0, 100% 50px, 100% 100%, 0 100%);
-		margin-top -50px
-		padding 75px 0
+		clip-path: polygon(0 25px, 100% 0, 100% calc(100% - 25px), 0 100%);
+		margin-top -25px
+		padding 50px 0
 		&.footer
-			padding 50px 0 25px 0
-//body:not(.index)
-// 	.footer.angle
-// 		margin-top 0
+			padding 25px 0 25px 0
 a.btn.angle
 	clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
 	&:hover
@@ -383,14 +379,26 @@ iframe
 		height auto
 	@media(max-height:900px)
 		height auto
-.separator
+[class*='separator-'],.separator
 	height 50px
 	width 100%
 	background-size contain
-	background-image url('/img/icon/paw-white.png')
 	background-repeat no-repeat
 	background-position center center
 	margin-bottom 25px
+.separator
+	background-image url('/img/separator.png')
+.separator-white
+	background-image url('/img/separator-white.png')
+.separator-orange
+	background-image url('/img/separator-orange.png')
+.separator-tan
+	background-image url('/img/separator-tan.png')
+.separator-violet
+	background-image url('/img/separator-violet.png')
+.separator-red
+	background-image url('/img/separator-red.png')
+
 .x-pad
 	padding-top 25px
 	padding-bottom 25px
@@ -581,7 +589,7 @@ header
 	&.sticky
 		height 80px
 		position fixed
-		background $bluet5
+		background $oranget8
 		a.logo
 			height 70px
 			.logo
@@ -665,7 +673,7 @@ header
 						display block
 						padding 10px
 						&:hover
-							background $blue
+							background $orange
 			.dropdown
 				@media (max-width:992px)
 					line-height 25px
@@ -676,9 +684,9 @@ header
 								display block
 							&:not(:last-child)
 								a
-									border-bottom solid $blue 1px
+									border-bottom solid $orange 1px
 				.dropdown__content
-					background $bluet5
+					background $oranget8
 					float left
 					position relative
 					width auto
@@ -691,6 +699,8 @@ header
 
 
 // --- footer
+footer
+	padding 50px 0
 ul.footer-social-icons
 	li
 		display inline-block
@@ -715,7 +725,7 @@ ul.footer-social-icons
 		overflow-y auto
 		transition 0.5s
 		//width 100vw
-		background $maroon
+		background $purple
 		top 0
 		&.custom-toggled-class
 			transition 0.5s

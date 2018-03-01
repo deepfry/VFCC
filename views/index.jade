@@ -2,14 +2,14 @@ extends layout
 
 block content
 	//-p= JSON.stringify(contentful.artists)
-	section#first-section.imagebg.parallax.pink(data-overlay)
+	section#first-section.imagebg.parallax.black(data-overlay)
 		.background-image-holder
 			img(src="/img/bg/home-header.jpg")
 		.container
 			.row.text-center
 				.col-sm-12
-					img#big-logo(src="/img/logo/logo-blue.png")
-					#date-container.counter-class(data-date='2018/05/18 14:00:00')
+					img#big-logo(src="/img/logo/logo-h-white.png")
+					//-#date-container.counter-class(data-date='2018/05/18 14:00:00')
 						#countdown-timer
 							.countdown-section
 								span.countdown-amount.first-item.countdown-days.counter-days XXX
@@ -23,13 +23,19 @@ block content
 							.countdown-section
 								span.countdown-amount.countdown-seconds.counter-seconds XX
 								span.countdown-period Seconds
-					h2 MAY 18TH & 19TH 2018
-					.md!= md(contentful.home[0].promotion)
-	section.angle.imagebg.bg-ct
-		.background-image-holder
-			img(src="/img/bg/home-img1.jpg")
+					//-h2 MAY 18TH & 19TH 2018
+					//- .md!= md(contentful.home[0].promotion)
+	section.angle.bg-orange
 		.container
 			.row.text-center
+				.col-sm-12
+					h2.color-white TNR Vouchers
+					.separator-white
+					p.color-white.
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed sem vel quam pulvinar lobortis id id ante. In hac habitasse platea dictumst
+					a.btn.white(href="#")
+						span.btn__text.color-orange More Information
+			//-.row.text-center
 				.x-pad.col-sm-6.col-sm-offset-6.bg-blue.bg-t5.angle.info-box
 					h2 THE LOCATION
 					.separator
@@ -42,16 +48,19 @@ block content
 					h5.color-white.
 						2:00PM - MIDNIGHT#[br]
 						ALL AGES
-	section.angle.imagebg.maroon.heavy(data-overlay)
-		.background-image-holder
-			img(src="/img/bg/home-img2.jpg")
+	section
 		#artists.container.masonry
 			.row.text-center
 				.col-sm-12
-					h2 THE LINEUP
+					h2.color-purple We Love Cats
 					.separator
 			.row.masonry__container.text-center
-				if contentful.artists != undefined
+				- var cats = [1,2,3,4,5,6,7,8,9]
+				for cat in cats
+					.col-sm-3.col-xs-4.masonry__item
+						a(href="/img/cats/cat#{cat}.jpg" data-lightbox="cats")
+							img(src="/img/cats/cat#{cat}.jpg")
+				//-if contentful.artists != undefined
 					- var max = 9
 					for item in contentful.artists
 						- max--
@@ -77,8 +86,8 @@ block content
 		.container
 			.row.text-center
 				.col-sm-12
-					a.btn.white.angle(href="/artists")
-						span.btn__text.color-maroon View all artists
+					a.btn.purple(href="/artists")
+						span.btn__text.color-white View all cats
 	
 	//-section.angle.imagebg.blue.heavy(data-overlay)
 		.background-image-holder
@@ -124,18 +133,14 @@ block content
 				.col-sm-12
 					a.btn.white.angle(href="/events")
 						span.btn__text.color-blue View the Events
-	section.angle.imagebg.maroon(data-overlay)
-		.background-image-holder
-			img(src="/img/bg/home-img5.jpg")
+	section.bg-orange
 		.container
 			.row.text-center
 				.col-sm-12
-					h2 THE SPONSORS
-					.separator
-				.col-sm-12
-					h4 Sponsors TBA
-					//-a.btn.white.angle(href="#")
-						span.btn__text.color-maroon View all sponsors
+					h2 Upcoming Events
+					.separator-white
+					a.btn.white(href="#")
+						span.btn__text.color-orange View Calendar
 	//-section.angle.imagebg.lightblue(data-overlay)
 		.background-image-holder
 			img(src="/img/bg/home-img6.jpg")
@@ -151,15 +156,13 @@ block content
 						span.btn__text.color-lightblue View the area
 					//-a.btn.white.angle(href="https://www.google.com/maps?q=woodward+park&safe=active&ssui=on&um=1&ie=UTF-8&sa=X&ved=0ahUKEwiKpbDpt5nZAhVQ-GMKHStpBPMQ_AUICigB" target="_blank" style='margin-top:30px;')
 						span.btn__text.color-lightblue View the area
-	section.angle.imagebg.purple.heavy(data-overlay)
-		.background-image-holder
-			img(src="/img/bg/home-img7.jpg")
-		.container.masonry
+	section
+		.container
 			.row.text-center
 				.col-sm-12
-					h2 THE BLOG
+					h2.color-purple Latest News
 					.separator
-			.row.masonry__container.text-center
+			//-.row.masonry__container.text-center
 				if contentful.blog != undefined
 					- var max = 3
 					for item in contentful.blog
@@ -173,15 +176,29 @@ block content
 									
 			.row.text-center
 				.col-sm-12
-					a.btn.white.angle(href="/blog")
-						span.btn__text.color-purple View all posts
-	section.angle#map.unpad
-		.map-container.border--round.gmaps-active.height-50(
-		data-maps-api-key='AIzaSyBFxlargzJc2CmgNeXHpnAeXJ1y4C5n64U', 
-		data-address='7775 N Friant Rd, Fresno, CA 93720', 
-		data-map-zoom='14', 
-		style='position: relative; overflow: hidden;',
-		data-map-style='[{"featureType":"landscape","stylers":[{"hue":"#FFBB00"},{"saturation":43.400000000000006},{"lightness":37.599999999999994},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#FFC200"},{"saturation":-61.8},{"lightness":45.599999999999994},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#FF0300"},{"saturation":-100},{"lightness":51.19999999999999},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#FF0300"},{"saturation":-100},{"lightness":52},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#0078FF"},{"saturation":-13.200000000000003},{"lightness":2.4000000000000057},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#00FF6A"},{"saturation":-1.0989010989011234},{"lightness":11.200000000000017},{"gamma":1}]}]'
-		)
+					a.btn.purple(href="/blog")
+						span.btn__text.color-white View all news
+	section#map-section.unpad.height-50
+		#map-container.row.unmarg(style="height:100%;")
+			#map(style="height:100%;")
+				script(src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js')
+				link(href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.css', rel='stylesheet')
+				//- initial map center is based on the first project (if there is one, otherwise use a default coordinate)
+				script.
+					mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlcGZyeSIsImEiOiJjajUwNnowYnIyZGhnMzNyNGdkMThxYzNtIn0.2as5SwBqekMQuwmuxhQsjw';
+					var map = new mapboxgl.Map({
+						container: 'map',
+						style: 'mapbox://styles/deepfry/cjc2ajuhd13hi2rl9qygm543r',
+						zoom: 10,
+						center: [-119.286733, 36.327473],//default = [-119.286733, 36.327473],
+						scrollZoom: false
+					});
+		//- .map-container.border--round.gmaps-active.height-40(
+		//- data-maps-api-key='AIzaSyBFxlargzJc2CmgNeXHpnAeXJ1y4C5n64U', 
+		//- data-address='7775 N Friant Rd, Fresno, CA 93720', 
+		//- data-map-zoom='14', 
+		//- style='position: relative; overflow: hidden;',
+		//- data-map-style='[{"featureType":"landscape","stylers":[{"hue":"#FFBB00"},{"saturation":43.400000000000006},{"lightness":37.599999999999994},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#FFC200"},{"saturation":-61.8},{"lightness":45.599999999999994},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#FF0300"},{"saturation":-100},{"lightness":51.19999999999999},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#FF0300"},{"saturation":-100},{"lightness":52},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#0078FF"},{"saturation":-13.200000000000003},{"lightness":2.4000000000000057},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#00FF6A"},{"saturation":-1.0989010989011234},{"lightness":11.200000000000017},{"gamma":1}]}]'
+		//- )
 
 		
