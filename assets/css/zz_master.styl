@@ -1,0 +1,784 @@
+@import 'zx_settings'
+
+// normalize-css()
+// base()
+
+
+body
+	.content,footer
+		position relative
+	.content,header,footer
+		right 0
+		transition 0.5s
+	&.custom-toggled-class
+		.content,header,footer
+			right 80vw
+			transition 0.5s
+	.content
+		section.hero
+			min-height 300px
+
+p,a,li,span,h1,h2,h3,h4,h5,h6,input,textarea
+	font-family $defaultFont
+h1,h2,h3,h4,h5,h6,p,span
+	margin-bottom 25px
+h2
+	font-family $shen
+	font-size 62px
+	line-height 78px
+	font-weight 900
+	color $white
+	@media(max-width:992px)
+		font-size 55px
+	@media(max-width:767px)
+		font-size 45px
+		line-height 55px
+h3
+	font-size 50px
+	line-height 62px
+	font-weight 900
+	@media(max-width:992px)
+		font-size 40px
+	@media(max-width:767px)
+		font-size 30px
+		line-height 40px
+h4
+	font-size 42px
+	line-height 56px
+	font-weight 900
+h5
+	font-size 32px
+	line-height 46px
+	font-weight 900
+p, .md ul li
+	font-size 18px
+.md
+	ul
+		padding-left 22px
+		li
+			list-style-type disc
+			margin 15px 0
+	p
+		line-height 28px
+		strong
+			color inherit
+			font-weight 700
+			text-decoration underline
+.subHeadRow:not(:first-child)
+	margin-top 60px
+.footer
+	h1,h2,h3,h4,h5,h6,p,span
+		&>a
+			color inherit !important
+			font-weight inherit
+			font-size inherit
+			font-family inherit
+
+.imagebg
+	.background-image-holder
+		background-position center center
+.bg-pink
+	background-color $pink
+	&.bg-t5
+		background-color $pinkt5
+.bg-blue
+	background-color $blue
+	&.bg-t5
+		background-color $bluet5
+.bg-maroon
+	background-color $maroon
+	&.bg-t5
+		background-color $maroont5
+.bg-purple
+	background-color $purple
+	&.bg-t5
+		background-color $purplet5
+.bg-ct > .background-image-holder
+	background-position center top
+.bg-cb > .background-image-holder
+	background-position center bottom
+.bg-cc > .background-image-holder
+	background-position center center
+
+.color-pink
+	color $pink
+.color-blue
+	color $blue
+.color-maroon
+	color $maroon
+.color-purple
+	color $purple
+.color-lightblue
+	color $lightblue
+.color-white
+	color $white
+
+.btn
+	border none
+	border-radius 0px
+	&.maroon
+		background-color $maroon
+	&.blue
+		background-color $blue
+	&.lightblue
+		background-color $lightblue
+	&.pink
+		background-color $pink
+	&.purple
+		background-color $purple
+	&.white
+		background-color $white
+	.btn__text
+		font-weight 600
+		font-size 18px
+		text-transform uppercase
+
+[data-overlay]
+	&::before
+		opacity 0.5
+	&.heavy::before
+		opacity 0.9
+	&.pink::before
+		background $pink
+	&.blue::before
+		background $blue
+	&.lightblue::before
+		background $lightblue
+	&.maroon::before
+		background $maroon
+	&.purple::before
+		background $purple
+	&.black::before
+		background $black
+	&.white::before
+		background $white
+	.container
+		z-index 1
+
+.fa-soundcloud
+	&:hover
+		color #FF4603
+.fa-facebook
+	&:hover
+		color #3A589E
+.fa-instagram
+	&:hover
+		background linear-gradient(0deg, #F57A2D 0%, #D62F80 50%, #5858CA 90%)
+		color #D62F80
+		-webkit-background-clip text
+		-webkit-text-fill-color transparent
+.fa-twitter
+	&:hover
+		color #1DA1F2
+.fa-spotify
+	&:hover
+		color #1ED760
+.fa-link
+	&:hover
+		color #a8a8a8
+
+
+
+
+// --- countdown timer
+#countdown-timer
+	.countdown-section
+		margin 10px 15px
+		display inline-block
+		&>span
+			display block
+			font-size 30px
+			font-weight 600
+			color $white
+			&.countdown-amount
+				font-family $shen
+				margin-bottom 25px
+				font-size 60px
+			// &.countdown-days
+			// 	color $blue
+			// &.countdown-hours
+			// 	color $maroon
+			// &.countdown-minutes
+			// 	color $pink
+			// &.countdown-seconds
+			// 	color $lightblue
+	@media (max-width:767px)
+		.countdown-section
+			margin 10px 5px
+			&>span
+				font-size 18px
+				&.countdown-amount
+					margin-bottom 5px
+					font-size 30px
+// -- angle classes
+imgAnglesOdd()
+	clip-path: polygon(0 0, calc(100% - 50px) 0, 100% 100%, 50px 100%);
+	@media(max-width:992px)
+		clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 100%, 25px 100%);
+	@media(max-width:767px)
+		clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+imgAnglesEven()
+	clip-path: polygon(50px 0, 100% 0, calc(100% - 50px) 100%, 0 100%);
+	@media(max-width:992px)
+		clip-path: polygon(25px 0, 100% 0, calc(100% - 25px) 100%, 0 100%);
+	@media(max-width:767px)
+		clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+
+#first-section
+	padding-bottom 200px
+	padding-top 100px
+	@media(max-width:992px)
+		padding-bottom -100px
+	@media(max-width:767px)
+		padding-bottom -50px
+.angle:not(.btn):not(img):not(.masonry__item):not([class*="col-"])
+	clip-path: polygon(0 0, 100% 200px, 100% 100%, 0 100%);
+	margin-top -200px
+	padding 200px 0
+	z-index 2
+	position relative
+	&.footer
+		margin-top -200px
+		padding 200px 0 50px 0
+		@media(max-width:992px)
+			margin-top -100px
+		@media(max-width:767px)
+			margin-top -50px
+	@media (max-width 992px)
+		clip-path: polygon(0 0, 100% 100px, 100% 100%, 0 100%);
+		margin-top -100px
+		padding 100px 0
+		&.footer
+			padding 100px 0 50px 0
+	@media (max-width:767px)
+		clip-path: polygon(0 0, 100% 50px, 100% 100%, 0 100%);
+		margin-top -50px
+		padding 75px 0
+		&.footer
+			padding 50px 0 25px 0
+//body:not(.index)
+// 	.footer.angle
+// 		margin-top 0
+a.btn.angle
+	clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+	&:hover
+		clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+#map.angle
+	padding 0
+
+img.angle
+	clip-path: polygon(0 0, calc(100% - 100px) 0, 100% 100%, 100px 100%);
+	padding 0 !important
+	@media(max-width:992px)
+		clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 100%, 25px 100%);
+	@media(max-width:767px)
+		clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+
+.masonry__item.angle
+	img
+		padding 0px
+.artist.angle:nth-child(odd), .masonry__item.angle:nth-child(odd)
+	img.artist-photo, & > a:before, img
+		imgAnglesOdd()
+		transition 0.5s
+	&:hover
+		img.artist-photo, & > a:before, img.blog-photo
+			clip-path: polygon(0 0, calc(100% - 35px) 0, 100% 100%, 35px 100%);
+			transition 0.5s
+			@media(max-width:992px)
+				clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 100%, 15px 100%);
+			@media(max-width:767px)
+				clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 100%, 5px 100%);
+
+.artist.angle:nth-child(even), .masonry__item.angle:nth-child(even)
+	img.artist-photo, & > a:before, img
+		imgAnglesEven()
+		transition 0.5s
+	&:hover
+		img.artist-photo, & > a:before, img.blog-photo
+			clip-path: polygon(35px 0, 100% 0, calc(100% - 35px) 100%, 0 100%);
+			@media(max-width:992px)
+				clip-path: polygon(15px 0, 100% 0, calc(100% - 15px) 100%, 0 100%);
+			@media(max-width:767px)
+				clip-path: polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%);
+[class*="col-"].info-box
+	&.angle
+		padding 25px 60px
+		margin-top 30px
+		margin-bottom 30px
+		@media(max-width:992px)
+			padding 25px 30px
+		@media(max-width:767px)
+			display inline-block
+	&.angle:nth-child(odd)
+		imgAnglesOdd()
+	&.angle:nth-child(even)
+		imgAnglesEven()
+
+
+
+
+
+
+
+//--- blog posts
+.blogPost
+	a
+		text-decoration none
+	.blog-name
+		font-size 30px
+		font-weight 600
+		letter-spacing 2px
+		@media (max-width:767px)
+			font-size 24px
+
+
+
+// --- EVENTS
+#events
+	.event
+		.event-info
+			text-align left
+			h1,h2,h3,h4,h5,h6
+				margin-bottom 0
+
+
+
+
+
+
+
+
+// --- misc
+iframe
+	min-height 500px
+.masonry-filter-holder
+	z-index 4 !important
+	margin-bottom 50px
+	.masonry__filters
+		ul
+			li
+				color $white !important
+				font-weight 700
+				&:active
+					color $blue
+.map-container
+	min-height 500px
+#big-logo
+	max-width 75%
+.pos-vertical-center
+	@media(max-width:992px)
+		top auto
+		transform none
+		-webkit-transform none
+	@media(max-height:900px)
+		top auto
+		transform none
+		-webkit-transform none
+.height-100
+	height auto
+	min-height 100vh
+[class*="height-"]:not(.artist-hero):not(.map-container)
+	@media(max-width:992px)
+		height auto
+	@media(max-height:900px)
+		height auto
+.separator
+	height 50px
+	width 100%
+	background-size contain
+	background-image url('/img/icon/paw-white.png')
+	background-repeat no-repeat
+	background-position center center
+	margin-bottom 25px
+.x-pad
+	padding-top 25px
+	padding-bottom 25px
+.shift-up
+	position relative
+	top -200px
+	margin-bottom -200px
+	z-index 2
+	@media(max-width:992px)
+		top -100px
+		margin-bottom -100px
+	@media(max-width:767px)
+		top -50px
+		margin-bottom -50px
+section
+	&.shift-up
+		padding-top 0
+
+
+
+// --- artists bio page
+.artist-hero
+	.background-image-holder
+		filter blur(10px)
+.artist-social
+	li
+		display inline-block
+		margin 0 10px
+		a
+			display block
+			i
+				font-size 35px
+				color $textDefault
+
+
+
+//--- artists section
+#artists
+	.artist
+		&>a
+			position relative
+			text-decoration none
+			display block
+			&:before
+				transition 0.5s
+				content ''
+				background linear-gradient(0deg, rgba(84, 48, 72,0.9) 0%, rgba(84, 48, 72,0.0) 50%)
+				height 100%
+				width 100%
+				position absolute
+				top 0
+				left 0
+				z-index 3
+				opacity 0
+		img.artist-photo
+			margin-bottom 0
+			position relative
+			z-index 2
+		.artist-name
+			//position absolute
+			left 0
+			right 0
+			color $white
+			//background-color $blue
+			display block
+			padding 10px 5px 5px 5px
+			font-size 30px
+			font-weight 600
+			letter-spacing 2px
+			z-index 4
+			transition 0.5s
+			margin-bottom 0
+			line-height 30px
+			@media (min-width:992px)
+				bottom -45px
+				position absolute
+			@media (max-width:767px)
+				font-size 24px
+
+		.social-media
+			li
+				display inline-block
+				margin 0 10px
+				position relative
+				z-index 1
+				@media (max-width:767px)
+					margin 0 7px
+				a
+					display block
+					i
+						font-size 30px
+						@media (max-width:992px)
+							font-size 25px
+						@media (max-width:767px)
+							font-size 16px
+			@media (min-width:992px)
+				for i in  1 2 3 4 5 6
+					li:nth-child({i})
+						top -90px - ((i*10)/2)
+						transition 0.5s + (i/10)
+
+		&:hover
+			@media (min-width:992px)
+				&>a
+					&:before
+						transition 0.5s
+						opacity 1
+				.artist-name
+					bottom 5px
+				.social-media li
+					top 10px
+
+
+
+
+
+// --- header
+.fa-times-thin:before
+	content '\00d7'
+.closeX
+	color $white
+	position absolute
+	top 8px
+	right 25px
+	font-size 40px
+	cursor pointer
+body.index
+	header:not(.sticky)
+		img.logo
+			display none
+#menu-overlay-toggle
+	display none
+	height 100%
+	width 100%
+	position fixed
+	z-index 9
+	background rgba(0,0,0,0.5)
+	transition 0.5s
+	&.custom-toggled-class
+		z-index 0
+		//display none
+		background rgba(0,0,0,0.0)
+		transition 0.5s
+.dropdown__content
+	border-radius 0 !important
+	//box-shadow none !important
+	li
+		//padding 10px 20px
+		a
+			padding 20px 40px
+#menu1
+	width auto
+	float none !important
+	//padding-top 10px
+
+header
+	height $headerHeight
+	position absolute
+	z-index 10
+	width 100%
+	.hamburger-toggle
+		display block
+		position relative
+		height 25px
+		width 22px
+		top 17px
+		right 10px
+		margin-left 22px
+		float right
+	.hamburg
+		position relative
+		top 12px
+	.hamburg span, .hamburg span:before, .hamburg span:after
+		//top 10px
+		cursor pointer
+		border-radius 1px
+		height 2px
+		width 22px
+		background white
+		position relative
+		display block
+		content ''
+
+	.hamburg span:before
+		top -8px
+	.hamburg span:after
+		bottom -6px
+	&.sticky
+		height 80px
+		position fixed
+		background $bluet5
+		a.logo
+			height 70px
+			.logo
+				height 70px
+		nav
+			#mega-menu
+				ul.menu-horizontal
+					&>li
+						@media(min-width:992px)
+							line-height 40px
+							&.dropdown
+								top -2px
+
+					&>li > a, &>li > span.dropdown__trigger
+						@media(min-width:992px)
+							line-height 80px
+						.dropdown:not(.dropdown--active)
+							.dropdown__container
+								top 80px
+
+	// div
+	// 	position relative
+	// 	height 100%
+	a.logo
+		height 100px
+		position absolute
+		z-index 5
+		top 0
+		bottom 0
+		margin auto
+		.logo
+			height 100px
+
+
+	.nav-container
+		height 100%
+
+	nav
+		#mega-menu
+			position relative
+			//top 20px
+			a, span.dropdown__trigger
+				text-decoration none
+				text-transform uppercase
+				opacity 1
+				color $white
+				transition .2s
+				font-size 16px
+				line-height inherit
+				font-weight 600
+				&:hover
+					// color $blue
+					transition .2s
+			h1,h2,h3,h4,h5,h6,p
+				a
+					color $blue
+			ul.menu-horizontal
+				position relative
+				//top 10px
+				&>li
+					line-height 120px
+					display inline-block
+					&.header-btn
+						margin-right 0px
+						margin-left 15px
+					h6
+						font-size 16px
+					@media (max-width:992px)
+						line-height 25px
+						&.header-btn
+							margin-top 20px
+				a.btn
+					padding 0 20px
+			ul.menu-vertical
+				display block
+				li
+					display block
+					opacity 1
+					margin 0
+					a
+						display block
+						padding 10px
+						&:hover
+							background $blue
+			.dropdown
+				@media (max-width:992px)
+					line-height 25px
+					.dropdown__content
+						float none !important
+						li
+							a
+								display block
+							&:not(:last-child)
+								a
+									border-bottom solid $blue 1px
+				.dropdown__content
+					background $bluet5
+					float left
+					position relative
+					width auto
+					padding 0
+					z-index 10
+
+
+
+
+
+
+// --- footer
+ul.footer-social-icons
+	li
+		display inline-block
+		margin 0 15px
+		a
+			display block
+			i
+				color $white
+				font-size 30px
+
+
+
+// --- queries
+@media (max-width:992px)
+	#menu1
+		display block
+		width 80vw
+		right 0
+		transition 0.5s
+		position fixed
+		height 100vh
+		overflow-y auto
+		transition 0.5s
+		//width 100vw
+		background $maroon
+		top 0
+		&.custom-toggled-class
+			transition 0.5s
+			right -80vw !important
+			//display none
+		.container
+			width auto
+			padding 50px 25px 50px 0
+	#menu-overlay-toggle
+		display block !important
+	.content
+		//padding-top 56px
+	.col-img-fix
+		position relative
+		min-height 300px
+		margin 15px 0
+	#updates-section
+		margin-top -25px
+	header
+		height 60px !important
+		.float-left
+			float left
+		.float-right
+			float right
+		&.sticky
+			a.logo
+				height 55px
+				img
+					height 100% !important
+		a.logo
+			height 55px
+			img
+				height 100% !important
+		.stack-interface
+			margin-top 5px
+		#mega-menu
+			margin 0
+			top 0 !important
+			li
+				font-size 22px
+				margin 0 0 10px 0
+				padding 3px 20px
+		.dropdown__trigger
+			font-size 15px
+
+
+	// #menu1
+	// 	width 80vw
+	// 	position fixed
+	// 	right 0
+	// 	transition 0.5s
+	// 	padding-top 0px
+	// 	//height 90vh
+	// 	overflow-y auto
+	// 	overflow-x hidden
+	.logo-mobile
+		margin-left 15px !important
+	.stack-menu
+		margin 25px 0px 0px 0px
+	ul.menu-horizontal
+		li
+			display block !important
+			&:not(:last-child)
+				margin-right 15px
+			&.header-btn
+				margin-left 0 !important
