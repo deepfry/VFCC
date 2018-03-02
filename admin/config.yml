@@ -24,25 +24,25 @@ collections: # A list of collections the CMS should be able to edit
     files:
       - name: "characters"
         label: "Characters"
-        file: "data/characters.json"
+        file: "data/characters.json" #file path
         fields:
-          - name: "data"
+          - name: "data" #array within file
             label: "Characters"
             widget: "list"
             fields:
               - {label: "Name", name: "name", widget: "string"}
               - {label: "Image", name: "image", widget: "image", media_folder: "assets/img"}
               - {label: "Description", name: "description", widget: "string"}
-      # - name: "testing"
-      #   label: "Testing"
-      #   file: "data/test.json"
-      #   fields:
-      #     - name: "test"
-      #       label: "Test"
-      #       widget: "relation"
-      #       collection: "docs"
-      #       searchFields: ["title"]
-      #       valueField: "name"
+      - name: "testing"
+        label: "Testing"
+        file: "data/test.json"
+        fields:
+          - name: "toot"
+            label: "Test"
+            widget: "relation"
+            collection: "docs"
+            searchFields: ["title"]
+            valueField: "name"
   # - name: "data"
   #   label: "Characters"
   #   files:
