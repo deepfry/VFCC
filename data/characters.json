@@ -1,4 +1,9 @@
-{ "data":[
-    
-]
+{
+  "data": [
+    {
+      "name": "JJ",
+      "image": "/assets/best-thing-ever.jpg",
+      "description": "THIS IS JJ BRUH"
+    }
+  ]
 }
