@@ -1,8 +1,9 @@
-{ "data":[
+{
+  "data": [
     {
       "name": "Finn the Human",
       "image": "/img/finn.jpg",
-      "description": "Finn is a 15-year-old human. He is roughly five feet tall and is missing several teeth due to his habit of biting trees and rocks among other things."
+      "description": "Finn is a 95-year-old human. He is roughly five feet tall and is missing several teeth due to his habit of biting trees and rocks among other things."
     },
     {
       "name": "Jake the Dog",
@@ -29,5 +30,5 @@
       "image": "/img/marceline.jpg",
       "description": "Marceline is over a thousand years old. Centuries of wandering the Land of Ooo have made her a fearless daredevil and a a lover of all things exotic."
     }
-]
+  ]
 }
