@@ -19,9 +19,9 @@ collections: # A list of collections the CMS should be able to edit
       - name: "character"
         label: "Character"
         widget: "relation"
-        collection: "characters"
-        searchFields: ["title"]
-        valueField: "object"
+        collection: "data"
+        searchFields: ["characters.name"]
+        valueField: "characters"
     meta: # Meta data fields. Just like fields, but without any preview element
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Categories", name: "categories", widget: "string"}
