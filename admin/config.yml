@@ -48,6 +48,12 @@ collections: # A list of collections the CMS should be able to edit
           - name: "image"
             label: "Image"
             widget: "image"
+          - name: "relation"
+            label: "Relation"
+            widget: "relation"
+            collection: "characters"
+            searchFields: ["name"]
+            valueField: "name"
   # - name: "data"
   #   label: "Characters"
   #   files:
