@@ -51,9 +51,9 @@ collections: # A list of collections the CMS should be able to edit
           - name: "relation"
             label: "Relation"
             widget: "relation"
-            collection: "characters"
-            searchFields: ["name"]
-            valueField: "name"
+            collection: "docs"
+            searchFields: ["title"]
+            valueField: "title"
   # - name: "data"
   #   label: "Characters"
   #   files:
