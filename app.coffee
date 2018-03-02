@@ -48,7 +48,7 @@ module.exports =
 			layout: 'layouts/post',
 			# permalink:(p)-> 'test/'+slugify(post.title)
 			prepare:(docs) ->
-				console.log(docs)
+				# console.log(docs)
 				docs.slug = '/test/'+slugify(docs.title)
 			),
 	]
