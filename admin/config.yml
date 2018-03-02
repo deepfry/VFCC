@@ -3,7 +3,7 @@ backend:
   branch: master # Branch to update (optional; defaults to master)
 
 media_folder: "assets/img/netlifycms" # Media files will be stored in the repo under static/images/uploads
-public_folder: "assets" # The src attribute for uploaded media will begin with /images/uploads
+public_folder: "img/netlifycms" # The src attribute for uploaded media will begin with /images/uploads
 publish_mode: editorial_workflow
 
 collections: # A list of collections the CMS should be able to edit
