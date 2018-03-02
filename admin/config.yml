@@ -37,7 +37,7 @@ collections: # A list of collections the CMS should be able to edit
         label: "Testing"
         file: "data/test.json"
         fields:
-          - name: "toot"
+          - name: "data"
             label: "Test"
             widget: "relation"
             collection: "docs"
