@@ -20,29 +20,29 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Categories", name: "categories", widget: "string"}
   - name: "data"
-    label: "Data Files"
+    label: "Data"
     files:
       - name: "characters"
         label: "Characters"
         file: "data/characters.json"
         fields:
-          - label: "Characters"
-            name: "data"
+          - name: "characters"
+            label: "Characters"
             widget: "list"
             fields:
               - {label: "Name", name: "name", widget: "string"}
               - {label: "Image", name: "image", widget: "image", media_folder: "assets/img"}
               - {label: "Description", name: "description", widget: "string"}
-      - name: "testing"
-        label: "Testing"
-        file: "data/test.json"
-        fields:
-          - name: "test"
-            label: "Test"
-            widget: "relation"
-            collection: "docs"
-            searchFields: ["title"]
-            valueField: "name"
+      # - name: "testing"
+      #   label: "Testing"
+      #   file: "data/test.json"
+      #   fields:
+      #     - name: "test"
+      #       label: "Test"
+      #       widget: "relation"
+      #       collection: "docs"
+      #       searchFields: ["title"]
+      #       valueField: "name"
   # - name: "data"
   #   label: "Characters"
   #   files:
