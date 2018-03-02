@@ -42,7 +42,7 @@ collections: # A list of collections the CMS should be able to edit
             widget: "relation"
             collection: "docs"
             searchFields: ["title"]
-            valueField: "name"
+            valueField: "title"
   # - name: "data"
   #   label: "Characters"
   #   files:
