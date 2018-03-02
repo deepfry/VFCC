@@ -3,6 +3,7 @@
   "object": {
     "date": "Mar 14th 18",
     "bool": true,
-    "image": "/img/netlifycms/best-thing-ever.jpg"
+    "image": "/img/netlifycms/best-thing-ever.jpg",
+    "relation": ""
   }
 }
