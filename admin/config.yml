@@ -25,6 +25,7 @@ collections: # A list of collections the CMS should be able to edit
       - name: "characters"
         label: "Characters"
         file: "data/characters.json"
+        widget: "list"
         fields:
           - {label: "Name", name: "name", widget: "string"}
           - {label: "Image", name: "image", widget: "image", media_folder: "assets/img"}
