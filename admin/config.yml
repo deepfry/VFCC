@@ -1,6 +1,6 @@
 backend:
-    name: git-gateway
-    branch: master # Branch to update (optional; defaults to master)
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
 
 media_folder: "assets/img/netlifycms" # Media files will be stored in the repo under static/images/uploads
 public_folder: "assets" # The src attribute for uploaded media will begin with /images/uploads
@@ -19,17 +19,14 @@ collections: # A list of collections the CMS should be able to edit
     meta: # Meta data fields. Just like fields, but without any preview element
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Categories", name: "categories", widget: "string"}
-  - name: "data"
-    label: "Data"
-    files:
-      - name: "characters"
-        label: "Characters"
-        file: "data/characters.json"
+  - name: "characters"
+    label: "Characters"
+    file: "data/characters.json"
+    fields:
+      - label: "Characters"
+        name: "data"
+        widget: "list"
         fields:
-          - label: "Characters"
-            name: "data"
-            widget: "list"
-            fields:
-              - {label: "Name", name: "name", widget: "string"}
-              - {label: "Image", name: "image", widget: "image", media_folder: "assets/img"}
-              - {label: "Description", name: "description", widget: "string"}
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "Image", name: "image", widget: "image", media_folder: "assets/img"}
+          - {label: "Description", name: "description", widget: "string"}

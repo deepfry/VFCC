@@ -38,12 +38,10 @@ module.exports =
 				characters: {
 					file: "data/characters.json",
 					template: "views/layouts/_data.jade",
-					out: (characters) -> "/characters/#{slugify(characters.name)}"
-					out: (data) ->
-						# console.log(data)
-						data.slug = "/characters/#{slugify(data.name)}"
+					out: (characters) ->
+						"/characters/#{slugify(characters.name)}"
+						characters.slug = "/characters/#{slugify(characters.name)}"
 					}
-				site: { file: "data/site.json"}
 			),
 		collections(
 			folder: 'docs',
