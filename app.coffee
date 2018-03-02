@@ -37,19 +37,18 @@ module.exports =
 		records(
 				characters: {
 					file: "data/characters.json",
+					hook: (characters) -> characters.data,
 					template: "views/layouts/_data.jade",
 					out: (characters) ->
 						"/characters/#{slugify(characters.name)}"
 						characters.slug = "/characters/#{slugify(characters.name)}"
+						#console.log(characters)
 					}
 			),
 		collections(
 			folder: 'docs',
 			layout: 'layouts/post',
 			# permalink:(p)-> 'test/'+slugify(post.title)
-			prepare:(docs) ->
-				# console.log(docs)
-				docs.slug = '/test/'+slugify(docs.title)
 			),
 	]
 

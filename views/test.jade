@@ -10,7 +10,7 @@ block content
 				.col-sm-12
 					//-p=JSON.stringify(docs)
 					each post in docs
-						a.image.featured(href=post.permalink)
+						a.image.featured(href=post.file_options._path)
 							img(src= post.banner)
 						div
 							h3= post.title

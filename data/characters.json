@@ -1,4 +1,4 @@
-[
+{ "data":[
     {
       "name": "Finn the Human",
       "image": "/img/finn.jpg",
@@ -30,3 +30,4 @@
       "description": "Marceline is over a thousand years old. Centuries of wandering the Land of Ooo have made her a fearless daredevil and a a lover of all things exotic."
     }
 ]
+}
