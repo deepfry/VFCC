@@ -24,7 +24,7 @@ collections: # A list of collections the CMS should be able to edit
     files: "data/characters.json"
     fields:
       - label: "Characters"
-        name: "data"
+        name: "characters"
         widget: "list"
         fields:
           - {label: "Name", name: "name", widget: "string"}
