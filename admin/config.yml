@@ -40,7 +40,7 @@ collections: # A list of collections the CMS should be able to edit
           - name: "data"
             label: "Test"
             widget: "relation"
-            collection: "docs"
+            collection: "characters"
             searchFields: ["title"]
             valueField: "title"
   # - name: "data"
