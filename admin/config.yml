@@ -37,6 +37,7 @@ collections: # A list of collections the CMS should be able to edit
         label: "Testing"
         file: "data/test.json"
         fields:
+          - {label: "Title", name: "title", widget: "string"}
           - name: "object"
             label: "Object"
             widget: "object"
@@ -56,12 +57,13 @@ collections: # A list of collections the CMS should be able to edit
                 label: "Relation"
                 widget: "relation"
                 collection: "testing2"
-                searchFields: ["object"]
+                searchFields: ["title"]
                 valueField: "object"
       - name: "testing2"
         label: "Testing2"
         file: "data/test2.json"
         fields:
+          - {label: "Title", name: "title", widget: "string"}
           - name: "object"
             label: "Object"
             widget: "object"
@@ -81,7 +83,7 @@ collections: # A list of collections the CMS should be able to edit
                 label: "Relation"
                 widget: "relation"
                 collection: "testing"
-                searchFields: ["object"]
+                searchFields: ["title"]
                 valueField: "object"
   # - name: "data"
   #   label: "Characters"
