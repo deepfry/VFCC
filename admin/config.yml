@@ -26,7 +26,7 @@ collections: # A list of collections the CMS should be able to edit
         label: "Characters"
         file: "data/characters.json"
         fields:
-          - name: "characters"
+          - name: "data"
             label: "Characters"
             widget: "list"
             fields:
