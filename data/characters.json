@@ -2,12 +2,12 @@
   "data": [
     {
       "name": "JJ",
-      "image": "/assets/best-thing-ever.jpg",
+      "image": "/img/netlifycms/best-thing-ever.jpg",
       "description": "THIS IS JJ BRUH"
     },
     {
       "name": "Rush",
-      "image": "/assets/best-thing-ever.jpg",
+      "image": "/img/netlifycms/best-thing-ever.jpg",
       "description": "asdfasdfasdf"
     }
   ]
