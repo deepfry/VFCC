@@ -16,6 +16,12 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Banner", name: "banner", widget: "image", class: "image featured"}
       - {label: "Short Description", name: "shortdesc", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
+      - name: "character"
+        label: "Character"
+        widget: "relation"
+        collection: "characters"
+        searchFields: ["title"]
+        valueField: "object"
     meta: # Meta data fields. Just like fields, but without any preview element
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Categories", name: "categories", widget: "string"}
@@ -33,58 +39,32 @@ collections: # A list of collections the CMS should be able to edit
               - {label: "Name", name: "name", widget: "string"}
               - {label: "Image", name: "image", widget: "image", media_folder: "assets/img"}
               - {label: "Description", name: "description", widget: "string"}
-      - name: "testing"
-        label: "Testing"
-        file: "data/test.json"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - name: "object"
-            label: "Object"
-            widget: "object"
-            fields:
-              - name: "date"
-                label: "Date"
-                widget: "date"
-                default: ""
-                format: "MMM Do YY"
-              - name: "bool"
-                label: "Boolean"
-                widget: "boolean"
-              - name: "image"
-                label: "Image"
-                widget: "image"
-              - name: "relation"
-                label: "Relation"
-                widget: "relation"
-                collection: "testing2"
-                searchFields: ["title"]
-                valueField: "object"
-      - name: "testing2"
-        label: "Testing2"
-        file: "data/test2.json"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - name: "object"
-            label: "Object"
-            widget: "object"
-            fields:
-              - name: "date"
-                label: "Date"
-                widget: "date"
-                default: ""
-                format: "MMM Do YY"
-              - name: "bool"
-                label: "Boolean"
-                widget: "boolean"
-              - name: "image"
-                label: "Image"
-                widget: "image"
-              - name: "relation"
-                label: "Relation"
-                widget: "relation"
-                collection: "testing"
-                searchFields: ["title"]
-                valueField: "object"
+      # - name: "testing2"
+      #   label: "Testing2"
+      #   file: "data/test2.json"
+      #   fields:
+      #     - {label: "Title", name: "title", widget: "string"}
+      #     - name: "object"
+      #       label: "Object"
+      #       widget: "object"
+      #       fields:
+      #         - name: "date"
+      #           label: "Date"
+      #           widget: "date"
+      #           default: ""
+      #           format: "MMM Do YY"
+      #         - name: "bool"
+      #           label: "Boolean"
+      #           widget: "boolean"
+      #         - name: "image"
+      #           label: "Image"
+      #           widget: "image"
+      #         - name: "relation"
+      #           label: "Relation"
+      #           widget: "relation"
+      #           collection: "testing"
+      #           searchFields: ["title"]
+      #           valueField: "object"
   # - name: "data"
   #   label: "Characters"
   #   files:
