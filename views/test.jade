@@ -1,0 +1,31 @@
+extends /layout
+
+block content
+	section.imagebg.parallax.pink.height-50.hero(data-overlay)
+		.background-image-holder
+			img(src="/img/bg/home-header.jpg")
+	section
+		.container
+			.row.text-center
+				.col-sm-12
+					//-p=JSON.stringify(docs)
+					each post in docs
+						a.image.featured(href=post.permalink)
+							img(src= post.banner)
+						div
+							h3= post.title
+							p= "Posted " + dateFormat(post.date, 'LL')
+							!= postExcerpt(post.body, 250)
+						div
+							ul.actions
+								li
+									a.button.icon.fa-file-text(href= post.file_options._path) Continue Reading
+	section
+		.container
+			.row
+				.col-sm-12
+					each character in records.characters
+						//-p=JSON.stringify(character)
+						a.btn.orange(href="#{character.slug}")
+							span.btn__text.color-white= character.name
+							

@@ -1,0 +1,35 @@
+backend:
+    name: git-gateway
+    branch: master # Branch to update (optional; defaults to master)
+
+media_folder: "assets/img/netlifycms" # Media files will be stored in the repo under static/images/uploads
+public_folder: "assets" # The src attribute for uploaded media will begin with /images/uploads
+publish_mode: editorial_workflow
+
+collections: # A list of collections the CMS should be able to edit
+  - name: "docs" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Post"  # Used in the UI, ie.: "New Post"
+    folder: "posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Banner", name: "banner", widget: "image", class: "image featured"}
+      - {label: "Short Description", name: "shortdesc", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+    meta: # Meta data fields. Just like fields, but without any preview element
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Categories", name: "categories", widget: "string"}
+  - name: "data"
+    label: "Data"
+    files:
+      - name: "characters"
+        label: "Characters"
+        file: "data/characters.json"
+        fields:
+          - label: "Characters"
+            name: "data"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Image", name: "image", widget: "image", media_folder: "assets/img"}
+              - {label: "Description", name: "description", widget: "string"}

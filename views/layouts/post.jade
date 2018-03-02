@@ -1,0 +1,15 @@
+extends /layout
+		
+block content
+	section#first-section.imagebg.parallax.black(data-overlay)
+		.background-image-holder
+			img(src="/img/bg/home-header.jpg")
+	section
+		.container
+			.row
+				.col-sm-12
+					article.box.post
+						div.image.featured(style={"background-image": "url(" + entry.banner + ")"})
+							h2= entry.title
+							p= entry.shortdesc
+						!= entry.body
