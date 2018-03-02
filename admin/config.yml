@@ -55,12 +55,12 @@ collections: # A list of collections the CMS should be able to edit
               - name: "relation"
                 label: "Relation"
                 widget: "relation"
-                collection: "docs"
-                searchFields: ["title"]
-                valueField: "title"
+                collection: "testing2"
+                searchFields: ["object"]
+                valueField: "object"
       - name: "testing2"
         label: "Testing2"
-        file: "data/test.json"
+        file: "data/test2.json"
         fields:
           - name: "object"
             label: "Object"
@@ -80,9 +80,9 @@ collections: # A list of collections the CMS should be able to edit
               - name: "relation"
                 label: "Relation"
                 widget: "relation"
-                collection: "docs"
-                searchFields: ["title"]
-                valueField: "title"
+                collection: "testing"
+                searchFields: ["object"]
+                valueField: "object"
   # - name: "data"
   #   label: "Characters"
   #   files:
