@@ -37,12 +37,17 @@ collections: # A list of collections the CMS should be able to edit
         label: "Testing"
         file: "data/test.json"
         fields:
-          - name: "data"
-            label: "Test"
-            widget: "relation"
-            collection: "characters"
-            searchFields: ["title"]
-            valueField: "title"
+          - name: "date"
+            label: "Date"
+            widget: "date"
+            default: ""
+            format: "MMM Do YY"
+          - name: "bool"
+            label: "Boolean"
+            widget: "boolean"
+          - name: "image"
+            label: "Image"
+            widget: "image"
   # - name: "data"
   #   label: "Characters"
   #   files:
