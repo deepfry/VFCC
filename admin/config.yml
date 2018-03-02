@@ -21,10 +21,10 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Categories", name: "categories", widget: "string"}
   - name: "data"
     label: "Characters"
-    files:
-      - name: "characters"
-        label: "Characters"
-        file: "data/characters.json"
+    files: "data/characters.json"
+    fields:
+      - label: "Characters"
+        name: "data"
         widget: "list"
         fields:
           - {label: "Name", name: "name", widget: "string"}
