@@ -19,7 +19,7 @@ collections: # A list of collections the CMS should be able to edit
     meta: # Meta data fields. Just like fields, but without any preview element
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Categories", name: "categories", widget: "string"}
-  - name: "characters"
+  - name: "data"
     label: "Characters"
     file: "data/characters.json"
     fields:
@@ -30,3 +30,17 @@ collections: # A list of collections the CMS should be able to edit
           - {label: "Name", name: "name", widget: "string"}
           - {label: "Image", name: "image", widget: "image", media_folder: "assets/img"}
           - {label: "Description", name: "description", widget: "string"}
+  # - name: "data"
+  #   label: "Characters"
+  #   files:
+  #     - name: "characters"
+  #       label: "Characters"
+  #       file: "data/characters.json"
+  #       fields:
+  #         - label: "Characters"
+  #           name: "data"
+  #           widget: "list"
+  #           fields:
+  #             - {label: "Name", name: "name", widget: "string"}
+  #             - {label: "Image", name: "image", widget: "image", media_folder: "assets/img"}
+  #             - {label: "Description", name: "description", widget: "string"}
