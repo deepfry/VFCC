@@ -34,22 +34,22 @@ module.exports =
 	extensions: [
 		js_pipeline(files: ['assets/js/*.js','assets/js/*.coffee']),
 		css_pipeline(files: ['assets/css/*.css','assets/css/*.styl'])
-		records(
-				characters: {
-					file: "data/characters.json",
-					hook: (characters) -> characters.data,
-					template: "views/layouts/_data.jade",
-					out: (characters) ->
-						"/characters/#{slugify(characters.name)}"
-						characters.slug = "/characters/#{slugify(characters.name)}"
-						#console.log(characters)
-					}
-			),
-		collections(
-			folder: 'docs',
-			layout: 'layouts/post',
-			# permalink:(p)-> 'test/'+slugify(post.title)
-			),
+		# records(
+		# 		characters: {
+		# 			file: "data/characters.json",
+		# 			hook: (characters) -> characters.data,
+		# 			template: "views/layouts/_data.jade",
+		# 			out: (characters) ->
+		# 				"/characters/#{slugify(characters.name)}"
+		# 				characters.slug = "/characters/#{slugify(characters.name)}"
+		# 				#console.log(characters)
+		# 			}
+		# 	),
+		# collections(
+		# 	folder: 'docs',
+		# 	layout: 'layouts/post',
+		# 	# permalink:(p)-> 'test/'+slugify(post.title)
+		# 	),
 	]
 
 	stylus:
