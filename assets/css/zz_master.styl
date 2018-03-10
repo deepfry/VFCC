@@ -138,9 +138,17 @@ p, .md ul li
 		font-size 18px
 		text-transform uppercase
 
-[data-overlay]
+[data-overlay], [overlay="true"]
 	&::before
 		opacity 0.5
+		position absolute
+		content ''
+		background #252525
+		width 100%
+		height 100%
+		top 0
+		left 0
+		z-index 1
 	&.heavy::before
 		opacity 0.8
 	&.tan::before
@@ -695,8 +703,25 @@ header
 
 
 
+// --- Section Styles
 
+section
+	&.imagebg, &[class*="bg-"]:not(.bg-white)
+		color $white
+		.separator
+			background-image url('/img/separator-white.png')
+		.md
+			a
+				color $white
+				font-weight 600
 
+	&.bg-white
+		h1,h2,h3,h4,h5,h6,p
+			color $purple
+		.md
+			a
+				color $orange
+				font-weight 600
 
 // --- footer
 footer

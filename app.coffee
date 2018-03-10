@@ -33,7 +33,15 @@ module.exports =
 
 	extensions: [
 		js_pipeline(files: ['assets/js/*.js','assets/js/*.coffee']),
-		css_pipeline(files: ['assets/css/*.css','assets/css/*.styl'])
+		css_pipeline(files: ['assets/css/*.css','assets/css/*.styl']),
+		contentful
+			access_token: '05bdbf71374ae276ef661f6984147a25b55c0fb5065e04ad91abb75e1f94497b'
+			space_id: 'edu03zf33tsf'
+			content_types:
+				subPages:
+					id:"subPage"
+					template: "views/partials/_subPage.jade"
+					path: (e) ->  "/#{e.url}"
 		# records(
 		# 		characters: {
 		# 			file: "data/characters.json",
