@@ -50,6 +50,10 @@ h5
 	font-size 32px
 	line-height 46px
 	font-weight 900
+h6
+	font-size 24px
+	line-height 30px
+	font-weight 600
 p, .md ul li
 	font-size 18px
 .md
@@ -356,16 +360,7 @@ img.angle
 // --- misc
 iframe
 	min-height 500px
-.masonry-filter-holder
-	z-index 4 !important
-	margin-bottom 50px
-	.masonry__filters
-		ul
-			li
-				color $white !important
-				font-weight 700
-				&:active
-					color $blue
+
 .map-container
 	min-height 500px
 #big-logo
@@ -704,7 +699,9 @@ header
 
 
 // --- Section Styles
-
+.masonry__item
+	a:hover
+		text-decoration none !important
 section
 	&.imagebg, &[class*="bg-"]:not(.bg-white)
 		color $white
@@ -714,6 +711,19 @@ section
 			a
 				color $white
 				font-weight 600
+		.masonry-filter-holder
+			z-index 4 !important
+			margin-bottom 50px
+			.masonry__filters
+				ul
+					li
+						color $white !important
+						font-weight 700
+						&:active
+							color $white
+		.masonry__item
+			h1,h2,h3,h4,h5,h6,p,.md
+				color $white !important
 
 	&.bg-white
 		h1,h2,h3,h4,h5,h6,p
@@ -722,6 +732,19 @@ section
 			a
 				color $orange
 				font-weight 600
+		.masonry-filter-holder
+			z-index 4 !important
+			margin-bottom 50px
+			.masonry__filters
+				ul
+					li
+						color $orange !important
+						font-weight 700
+						&:active
+							color $purple
+			.masonry__item
+				h1,h2,h3,h4,h5,h6,p
+					color $purple
 
 // --- footer
 footer

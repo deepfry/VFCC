@@ -9742,7 +9742,7 @@ iframe[src*='google.com/maps'] {
             }
 
 .masonry-filter-holder + .masonry__container {
-    margin-top: 3.71428571em;
+    /* margin-top: 3.71428571em; */
 }
 
 .bg--dark .masonry-filter-holder .masonry__filters {

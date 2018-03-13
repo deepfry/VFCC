@@ -13,6 +13,16 @@ moment       = require 'moment'
 
 subPages     = {}
 
+blogPosts    = {}
+
+separateBlogPostCats = (entry) ->
+	blogPosts[entry.id] = []
+
+separateBlogPosts = (entry) ->
+	if entry.category != undefined
+		for category in entry.category
+			blogPosts[category.fields.id].push(entry)
+
 transformFunction = (entry) ->
 	subPages[entry.id] = entry
 
@@ -24,10 +34,7 @@ module.exports =
 		basedir: 'views'
 		md: require 'marked'
 		subPages:subPages
-		postExcerpt: (html, length, ellipsis) ->
-			excerpt.text(html, length || 100, ellipsis || '...')
-		dateFormat: (date, format) ->
-			moment(date).format(format)
+		blogPosts:blogPosts
 
 	ignores: ['readme.md', '**/layout.*', '**/_*', '.gitignore', 'ship.*conf']
 
@@ -42,22 +49,14 @@ module.exports =
 					id:"subPage"
 					template: "views/partials/_subPage.jade"
 					path: (e) ->  "/#{e.url}"
-		# records(
-		# 		characters: {
-		# 			file: "data/characters.json",
-		# 			hook: (characters) -> characters.data,
-		# 			template: "views/layouts/_data.jade",
-		# 			out: (characters) ->
-		# 				"/characters/#{slugify(characters.name)}"
-		# 				characters.slug = "/characters/#{slugify(characters.name)}"
-		# 				#console.log(characters)
-		# 			}
-		# 	),
-		# collections(
-		# 	folder: 'docs',
-		# 	layout: 'layouts/post',
-		# 	# permalink:(p)-> 'test/'+slugify(post.title)
-		# 	),
+				blogCats:
+					id:"blogCategories"
+					transform: separateBlogPostCats
+				blogPosts:
+					id:"blogPost"
+					template: "views/partials/_blogPost.jade"
+					path: (e) ->  "blog/#{e.url}"
+					transform: separateBlogPosts
 	]
 
 	stylus:
