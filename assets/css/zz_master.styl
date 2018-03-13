@@ -22,6 +22,16 @@ p,a,li,span,h1,h2,h3,h4,h5,h6,input,textarea
 	font-family $defaultFont
 h1,h2,h3,h4,h5,h6,p,span
 	margin-bottom 25px
+h1
+	font-size 64px
+	font-family $patua
+	line-height 80px
+	font-weight 900
+	letter-spacing 5px
+	@media(max-width:992px)
+		font-size 54px
+	@media(max-width:767px)
+		font-size 45px
 h2
 	font-family $patua
 	font-size 62px
@@ -236,12 +246,14 @@ imgAnglesEven()
 		clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
 
 #first-section
-	padding-bottom 200px
-	padding-top 100px
+	padding-bottom 50px
+	padding-top 50px
 	@media(max-width:992px)
-		padding-bottom -100px
+		padding-bottom -50px
 	@media(max-width:767px)
 		padding-bottom -50px
+	.container
+		padding 100px 0
 .angle:not(.btn):not(img):not(.masonry__item):not([class*="col-"])
 	clip-path: polygon(0 100px, 100% 0, 100% calc(100% - 100px), 0 100%);
 	margin-top -100px

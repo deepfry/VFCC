@@ -1,0 +1,70 @@
+extends layout
+block head
+	//-p= JSON.stringify(contentful.artists)
+	link(href='customjs/fullcalendar.css', rel='stylesheet')
+	link(href='customjs/fullcalendar.print.css', rel='stylesheet', media='print')
+	script(src='customjs/moment.min.js')
+	script(src='customjs/fullcalendar.js')
+	script(src='customjs/gcal.js')
+	script.
+		$(document).ready(function(){
+			$('#calendar').fullCalendar({
+
+				// THIS KEY WON'T WORK IN PRODUCTION!!!
+				// To make your own Google API key, follow the directions here:
+				// http://fullcalendar.io/docs/google_calendar/
+				googleCalendarApiKey: 'AIzaSyDlcjRsnqfoX97R-RmTfPeyEjpHhQt7wCg',
+				header: {
+					left: 'prev,next today',
+					center: 'title',
+					right: 'month,listMonth',
+				},
+				//eventLimit:true,
+				timezone: 'America/Los_Angeles',
+				// RollerTowne Calendar
+				eventSources: [ 
+					{
+						googleCalendarId:'mj1droue3mpnddv118n634vqgc@group.calendar.google.com', 
+						className:'specialEvents',
+						color:'#E7623A',
+						textColor:'white'
+					}//, //SPECIAL EVENTS (WINTER)
+					//- {
+					//- 	googleCalendarId:'8b1fjlkpm8eu232pqkqigsh7v0@group.calendar.google.com', 
+					//- 	className:'rentTheRinkWinter',
+					//- 	color:'#003443',
+					//- 	textColor:'white'
+					//- } //RENT THE RINK (WINTER)
+
+
+				],
+				eventClick: function(event) {
+					// opens events in a popup window
+					window.open(event.url, 'gcalevent', 'width=700,height=600');
+					return false;
+				},
+
+				loading: function(bool) {
+					$('#loading').toggle(bool);
+				}
+
+			});
+		})
+
+block content
+	section#first-section.imagebg.parallax.black(data-overlay)
+		.background-image-holder
+			img(src="/img/bg/home-header.jpg")
+		.container
+			.row.text-center
+				.col-sm-12
+					h1 CALENDAR
+					//-a.btn.btn-blue(href="#")
+						span.btn__text Learn More
+	section
+		.container
+			.row
+				.col-sm-12
+					#calendar-container
+						#calendar
+						#loading
