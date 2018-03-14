@@ -8,7 +8,8 @@ block content
 			img(src="#{asset(entry.headerImage)}")
 		//-p= JSON.stringify(subPages)
 	if entry != undefined
-		if entry.sections != undefined
+		include /partials/_sections
+		//-if entry.sections != undefined
 			for section in entry.sections
 				- var sectionColor = section.fields.background == undefined ? '' : section.fields.background
 				- var className = sectionColor === 'image' ? 'imagebg' : 'bg-'+sectionColor
