@@ -134,9 +134,12 @@ p, .md ul li
 .color-white
 	color $white
 
-.btn
+.btn,button
 	border none
 	border-radius 0px
+	padding 15px 20px !important
+	font-size 16px !important
+	line-height 16px
 	&.tan
 		background-color $tan
 	&.orange
@@ -150,6 +153,7 @@ p, .md ul li
 	&.white
 		background-color $white
 	&:not(.white)
+		color $white
 		.btn__text
 			color $white
 	.btn__text
