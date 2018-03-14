@@ -1,0 +1,38 @@
+extends layout
+block content
+	//-p= JSON.stringify(contentful.artists)
+	section#first-section.imagebg.parallax.black(data-overlay)
+		.background-image-holder
+			img(src="/img/bg/home-header.jpg")
+		.container
+			.row.text-center
+				.col-sm-12
+					h1 Contact
+	section
+		.container
+			.row.text-center
+				.col-sm-12
+					h4.color-purple We would love to hear from you!
+			.row
+				.col-sm-8.col-center
+					form#contact-form.form-email.custom-script(name="Contact", netlify-honeypot="bot-field", action='/thankyou', netlify netlify-recaptcha)
+						.col-sm-12.hidden
+							label don't fill this out:
+							input(type='text', name='bot-field')
+						.col-sm-4
+							label Your name
+							input.name.validate-required(type='text', name='name')
+						.col-sm-4
+							label Your email
+							input.email.validate-required.validate-email(type='text', name='email')
+						.col-sm-4
+							label Your phone
+							input.phone.validate-number-dash(type='text', name='phone-number')
+						.col-sm-12
+							label Message
+							textarea.message.validate-required(type='text', name='message')
+						.col-sm-12
+							div(netlify-recaptcha)
+						.float-right(style="padding-right:15px;")
+							a.btn.orange(type='submit' style="position:relative;z-index:9;")
+								span.btn__text Send
