@@ -841,7 +841,7 @@ mr = (function (mr, $, window, document){
 
         //////////////// Handle Form Submit
 
-        $('form.form-email, form[action*="list-manage.com"], form[action*="createsend.com"]').attr('novalidate', true).off('submit').on('submit', mr.forms.submit);
+        $('form.form-email:not(.custom-script), form[action*="list-manage.com"], form[action*="createsend.com"]').attr('novalidate', true).off('submit').on('submit', mr.forms.submit);
 
         //////////////// Handle Form Submit
         $(document).on('change, input, paste, keyup', '.attempted-submit .field-error', function(){
