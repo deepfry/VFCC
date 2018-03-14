@@ -458,11 +458,21 @@ section
 form
 	label
 		color $orange
-	input[type], textarea
+	input[type='text'], textarea
 		//border-radius 0px
 		border 1px $orange solid
 		&:focus
 			border 1px $purple solid
+	.input-checkbox
+		input:checked + label
+			border-color $orange
+			background $orange
+		label
+			border-color $orange
+			&:hover
+				border-color $orange
+			&:before
+				border 1px solid $orange
 	textarea
 		min-height 300px
 

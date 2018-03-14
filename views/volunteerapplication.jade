@@ -1,0 +1,102 @@
+extends layout
+
+block content
+	//-p= JSON.stringify(contentful.artists)
+	section#first-section.imagebg.parallax.black(data-overlay)
+		.background-image-holder
+			img(src="/img/bg/contact-header.jpg")
+		.container
+			.row.text-center
+				.col-sm-12
+					h1 Volunteer
+	section
+		.container
+			.row.text-center
+				.col-sm-12
+					h4.color-purple Want to volunteer?
+			.row
+				.col-sm-8.col-center
+					form#contact-form.form-email.custom-script(name="Volunteer", netlify-honeypot="bot-field", action='/thankyou', netlify netlify-recaptcha)
+						.col-sm-12.hidden
+							label don't fill this out:
+							input(type='text', name='bot-field')
+						.col-sm-4
+							label Your name
+							input.validate-required(type='text', name='name')
+						.col-sm-4
+							label Your email
+							input.validate-required.validate-email(type='text', name='email')
+						.col-sm-4
+							label Your phone
+							input.validate-number-dash(type='text', name='phone-number')
+						.col-sm-12
+							label Your address
+							input.validate-required(type='text', name='address')
+						.col-sm-4
+							label City
+							input.validate-required(type='text', name='city')
+						.col-sm-4
+							label State
+							input.validate-required(type='text', name='state')
+						.col-sm-4
+							label ZIP
+							input.validate-number-dash.validate-required(type='text', name='zip')
+						.col-sm-6
+							.input-checkbox
+								input.validate-required(type='checkbox' id="olderThan18" name='olderThan18')
+								label(for="olderThan18")
+							span.color-orange I am 18 or older
+						.col-sm-6
+							.input-checkbox
+								input.validate-required(type='checkbox' id="license" name='license')
+								label(for="license")
+							span.color-orange I have a valid drivers license
+						.col-sm-6
+							label I want to be a volunteer because...
+							textarea.validate-required(type='text', name='IWantToBeAVolunteerBecause')
+						.col-sm-6
+							label Some of my special skills & hobbies are...
+							textarea.validate-required(type='text', name='skillsAndHobbies')
+						.col-sm-12
+							p.color-orange These volunteer opprotunities interest me:
+						.col-sm-6
+							.input-checkbox
+								input.validate-required(type='checkbox' id="volunteerTNR" name='volunteerTNR')
+								label(for="volunteerTNR")
+							span.color-orange Trap-Neuter-Return events
+						.col-sm-6
+							.input-checkbox
+								input.validate-required(type='checkbox' id="volunteerColonyCare" name='volunteerColonyCare')
+								label(for="volunteerColonyCare")
+							span.color-orange Colony care
+						.col-sm-6
+							.input-checkbox
+								input.validate-required(type='checkbox' id="volunteerPublicEvents" name='volunteerPublicEvents')
+								label(for="volunteerColonyCare")
+							span.color-orange Public events
+						.col-sm-6
+							.input-checkbox
+								input.validate-required(type='checkbox' id="volunteerFundraising" name='volunteerFundraising')
+								label(for="volunteerColonyCare")
+							span.color-orange Fundraising
+						.col-sm-6
+							.input-checkbox
+								input.validate-required(type='checkbox' id="volunteerAdministrativeSupport" name='volunteerAdministrativeSupport')
+								label(for="volunteerColonyCare")
+							span.color-orange Administrative support
+						.col-sm-6
+							.input-checkbox
+								input.validate-required(type='checkbox' id="volunteerFosterKittens" name='volunteerFosterKittens')
+								label(for="volunteerColonyCare")
+							span.color-orange Foster Kittens
+						.col-sm-6
+							label The following activities or commitments (such as work or school) may interfere with my capacity to volunteer:
+							textarea.validate-required(type='text', name='priorCommitments')
+						.col-sm-6
+							label Additional comments
+							textarea.validate-required(type='text', name='additionalComments')
+						.col-sm-12
+							div(netlify-recaptcha)
+						.float-right(style="padding-right:15px;")
+							button.btn.orange(type='submit' style="position:relative;z-index:9;")
+								span.btn__text Send
