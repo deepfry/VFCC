@@ -24,7 +24,7 @@ separateBlogPosts = (entry) ->
 			blogPosts[category.fields.id].push(entry)
 
 transformFunction = (entry) ->
-	subPages[entry.id] = entry
+	subPages[slugify(entry.title)] = entry
 
 module.exports =
 	output: 'public'
@@ -49,6 +49,7 @@ module.exports =
 					id:"subPage"
 					template: "views/partials/_subPage.jade"
 					path: (e) ->  "/#{e.url}"
+					transform: transformFunction
 				blogCats:
 					id:"blogCategories"
 					transform: separateBlogPostCats
