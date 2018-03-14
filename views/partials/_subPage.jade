@@ -1,11 +1,14 @@
 extends /layout
-block head
-	//-script.
-		pageClass = '#{entry.id}'
+
 block content
-	section.imagebg.parallax.pink.height-50.hero(data-overlay)
+	- var bgpos = entry.headerPosition != undefined ? entry.headerPosition : 'bg-cc'
+	section#first-section.imagebg.parallax(data-overlay class="#{bgpos}")
 		.background-image-holder
 			img(src="#{asset(entry.headerImage)}")
 		//-p= JSON.stringify(subPages)
+		.container
+			.row.text-center
+				.col-sm-12
+					h1= entry.title
 	if entry != undefined
 		include /partials/_sections
