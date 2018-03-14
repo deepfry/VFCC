@@ -1,0 +1,12 @@
+extends layout
+block content
+	//-p= JSON.stringify(contentful.artists)
+	section#first-section.imagebg.parallax.black(data-overlay)
+		.background-image-holder
+			img(src="/img/bg/home-header.jpg")
+		.container
+			.row.text-center
+				.col-sm-12
+					h1 Thank you!
+	- var entry = subPages.thankyou
+	include /partials/_sections.jade
