@@ -1,15 +1,14 @@
 extends layout
 block content
+	- var entry = subPages.Home
 	//-p= JSON.stringify(contentful.artists)
 	section#first-section.imagebg.parallax.black(data-overlay)
 		.background-image-holder
-			img(src="/img/bg/home-header.jpg")
+			img(src="#{asset(entry.headerImage)}")
 		.container
 			.row.text-center
 				.col-sm-12
 					img#big-logo(src="/img/logo/logo-h-white.png")
-
-	- var entry = subPages.Home
 	include /partials/_sections.jade
 	//---- MAP SECTION
 	//-section#map-section.unpad.height-50
