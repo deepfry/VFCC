@@ -23,7 +23,7 @@ html(xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#")
 		//- If the page is just a template for a post, get the template, and the post title
 		- var consoleLogPage = ""
 		- if(pageClass[0] === undefined && entry != null & entry.sys.contentType.sys.id != undefined){pageClass = entry.url; consoleLogPage = entry.sys.contentType.sys.id + ' - ' + entry.title}
-		- else{consoleLogPage = pageClass[0]}
+		- else{consoleLogPage = pageClass[0]; pageClass = pageClass[0]}
 		//- Log the page in the console on compile
 		- console.log('loading a page type: ' + consoleLogPage)
 		//- add the page name variable to front-end scripts
