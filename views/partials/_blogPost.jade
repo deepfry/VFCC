@@ -11,6 +11,8 @@ block content
 			.row.text-center
 				.col-sm-12
 					h1= entry.title
+					- var d = entry.dateFormatted
+					h6= d.dayName + ' ' + d.month + ' ' + d.day + ', ' + d.year
 	if entry != undefined
 		include /partials/_sections
 		//-if entry.sections != undefined

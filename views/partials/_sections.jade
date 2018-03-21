@@ -67,24 +67,30 @@ if entry.sections != undefined
 													if blogPost.category != undefined
 														for cat in blogPost.category
 															- filters += ' filter-'+cat.fields.id
-													.col-sm-4.col-xs-12.masonry__item(class="#{filters}")
+													.blogPost.col-sm-4.col-xs-12.masonry__item(class="#{filters}")
 														a(href="#{blogPost._url}")
-															img(src="#{asset(blogPost.headerImage)}")
-															h5= blogPost.title
-															if blogPost.featuredText != undefined
-																.md!=md(blogPost.featuredText)
+															img.blog-image(src="#{asset(blogPost.headerImage)}")
+															.blog-info
+																h5.blog-title= blogPost.title
+																- var d = blogPost.dateFormatted
+																p.blog-date= d.dayName + ' ' + d.month + ' ' + d.day + ', ' + d.year
+																if blogPost.featuredText != undefined
+																	.blog-ftext.md!=md(blogPost.featuredText)
 									else if block.fields.category != undefined
 										.row.masonry__container
 											- var max = block.fields.maxPosts != undefined ? block.fields.maxPosts : contentful.blogPosts.length
 											for blogPost in blogPosts[block.fields.category.fields.id]
 												if max >= 0
 													- max--
-													.col-sm-4.col-xs-12.masonry__item
+													.blogPost.col-sm-4.col-xs-12.masonry__item
 														a(href="#{blogPost._url}")
-															img(src="#{asset(blogPost.headerImage)}")
-															h5= blogPost.title
-															if blogPost.featuredText != undefined
-																.md!=md(blogPost.featuredText)
+															img.blog-image(src="#{asset(blogPost.headerImage)}")
+															.blog-info
+																h5.blog-title= blogPost.title
+																- var d = blogPost.dateFormatted
+																p.blog-date= d.dayName + ' ' + d.month + ' ' + d.day + ', ' + d.year
+																if blogPost.featuredText != undefined
+																	.blog-ftext.md!=md(blogPost.featuredText)
 												
 						else
 							- console.log('unrecognized block section')

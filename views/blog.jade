@@ -26,7 +26,10 @@ block content
 						a(href="#{blogPost._url}")
 							.col-sm-3.blog-image
 								img(src="#{asset(blogPost.headerImage)}")
-							.col-sm-8.text-left.blog-name
+							.col-sm-8.text-left.blog-info
 								h5.blog-title= blogPost.title
+								//-p= 'DATE: ' + JSON.stringify(blogPost.dateFormatted)
+								- var d = blogPost.dateFormatted
+								p.blog-date= d.dayName + ' ' + d.month + ' ' + d.day + ', ' + d.year
 								if blogPost.featuredText != undefined
-									.md!=md(blogPost.featuredText)
+									.blog-ftext.md!=md(blogPost.featuredText)

@@ -22,6 +22,16 @@ separateBlogPosts = (entry) ->
 	if entry.category != undefined
 		for category in entry.category
 			blogPosts[category.fields.id].push(entry)
+	if entry.date != undefined
+		days = ["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+		months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+		date = new Date(entry.date)
+		entry.dateFormatted = {}
+		entry.dateFormatted.day = date.getDate()
+		entry.dateFormatted.dayName = days[date.getDay()]
+		entry.dateFormatted.month = months[date.getMonth()]
+		entry.dateFormatted.year = date.getFullYear()
+		entry.dateFormatted.minutes = if date.getMinutes() < 10 then '0' + date.getMinutes() else date.getMinutes()
 
 transformFunction = (entry) ->
 	subPages[slugify(entry.title)] = entry
@@ -58,6 +68,9 @@ module.exports =
 					template: "views/partials/_blogPost.jade"
 					path: (e) ->  "blog/#{e.url}"
 					transform: separateBlogPosts
+					filters:{
+						'order':'-fields.date'
+					}
 	]
 
 	stylus:
