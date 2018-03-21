@@ -4,6 +4,7 @@ if entry.sections != undefined
 		- var className = sectionColor === 'image' ? 'imagebg' : 'bg-'+sectionColor
 		- var overlay = sectionColor === 'image' ? 'true' : ''
 		- var angle = section.fields.angledSection ? 'angle' : ''
+		- console.log("loading sections for " + pageClass)
 		section(class="#{className + ' ' + angle}")&attributes({overlay})
 			if className === 'imagebg'
 				.background-image-holder
@@ -27,6 +28,10 @@ if entry.sections != undefined
 											.md!= md(block.fields.body)
 						else if block.sys.contentType.sys.id === 'photoSection'
 							.content-block
+								if block.fields.description != undefined
+									.row.text-center
+										.col-sm-12
+											.md!=md(block.fields.description)
 								if block.fields.photos != undefined
 									.masonry
 										.row.masonry__container.text-center
@@ -92,5 +97,17 @@ if entry.sections != undefined
 																if blogPost.featuredText != undefined
 																	.blog-ftext.md!=md(blogPost.featuredText)
 												
+						else if block.sys.contentType.sys.id === 'donateLink'
+							.content-block
+								.row
+									.blogPost.col-sm-12.col-xs-12
+										a(href="#{block.fields.url}" target="_blank")
+											.col-sm-3.blog-image
+												img(src="#{asset(block.fields.image)}")
+											.col-sm-8.text-left.blog-info
+												h5.blog-title= block.fields.title
+												if block.fields.description != undefined
+													.blog-ftext.md!=md(block.fields.description)
+
 						else
 							- console.log('unrecognized block section')
