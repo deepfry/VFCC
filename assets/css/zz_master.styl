@@ -66,6 +66,7 @@ h6
 	font-weight 600
 p, .md ul li
 	font-size 18px
+
 .md
 	ul
 		padding-left 22px
@@ -355,13 +356,15 @@ img.angle
 	a
 		text-decoration none
 	.blog-name
-		font-size 30px
-		font-weight 600
-		letter-spacing 2px
+		.blog-title
+			font-size 30px
+			font-weight 600
+			letter-spacing 2px
+			@media (max-width:767px)
+				font-size 24px
+	.blog-image
 		@media (max-width:767px)
-			font-size 24px
-
-
+			margin-bottom 24px
 
 // --- EVENTS
 #events
