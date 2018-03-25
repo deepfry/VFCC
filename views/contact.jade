@@ -16,7 +16,7 @@ block content
 					h4.color-purple We would love to hear from you!
 			.row
 				.col-sm-8.col-center
-					form#contact-form.form-email.custom-script(name="Contact", netlify-honeypot="bot-field", action='/thankyou', netlify netlify-recaptcha)
+					form#contact-form.form-email.custom-script(name="Contact", netlify-honeypot="bot-field", method="POST" action='/thankyou', netlify netlify-recaptcha)
 						.col-sm-12.hidden
 							label don't fill this out:
 							input(type='text', name='bot-field')
