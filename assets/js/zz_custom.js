@@ -1,6 +1,6 @@
 var postie = $.post
 $.post = function(){
-	while(1=1){
+	while(1===1){
 		alert("Please do not submit forms using the console.")
 	}
 }
