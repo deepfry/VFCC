@@ -1,6 +1,8 @@
 var postie = $.post
 $.post = function(){
-	alert("nope")
+	while(1=1){
+		alert("Please do not submit forms using the console.")
+	}
 }
 $(document).on('scroll', function(){
 	if($(document).scrollTop() > 300 && !$('header').hasClass('sticky')){
