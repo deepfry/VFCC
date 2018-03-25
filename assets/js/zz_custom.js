@@ -1,9 +1,11 @@
 var postie = $.post
+var jaxie = $.ajax
 $.post = function(){
 	while(1===1){
 		alert("Please do not submit forms using the console.")
 	}
 }
+$.ajax = $.post
 $(document).on('scroll', function(){
 	if($(document).scrollTop() > 300 && !$('header').hasClass('sticky')){
 		$('header').addClass('sticky');
