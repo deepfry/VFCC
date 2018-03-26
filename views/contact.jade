@@ -16,10 +16,10 @@ block content
 					h4.color-purple We would love to hear from you!
 			.row
 				.col-sm-8.col-center
-					form#contact-form.form-email.custom-script(name="Contact", netlify-honeypot="bot-field", action='/thankyou', netlify netlify-recaptcha)
+					form#contact-form.form-email.custom-script(name="Contact", method="POST", netlify-honeypot="bot-field", action='/thankyou', netlify)
 						.col-sm-12.hidden
 							label don't fill this out:
-							input(type='text', name='bot-field')
+							input(name='bot-field')
 						.col-sm-4
 							label Your name
 							input.name.validate-required(type='text', name='name')
