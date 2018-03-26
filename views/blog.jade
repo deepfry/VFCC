@@ -1,0 +1,35 @@
+extends layout
+block content
+	- var entry = subPages.Home
+	//-p= JSON.stringify(contentful.artists)
+	section#first-section.imagebg.parallax.black(data-overlay)
+		.background-image-holder
+			img(src="#{asset(entry.headerImage)}")
+		.container
+			.row.text-center
+				.col-sm-8.col-center
+					img#big-logo(src="/img/logo/logo-h-white.png")
+	section#blogArchive.bg-white
+		.container.masonry.text-center
+			.row.masonry-filter-holder.masonry-filters--horizontal
+				.masonry__filters(data-filter-all-text='All Categories')
+					ul
+						li.active(data-masonry-filter='*') All Categories
+						for category in contentful.blogCats
+							li(data-masonry-filter='#{category.id}')= category.title
+			.row.masonry__container
+				for blogPost in contentful.blogPosts
+					if blogPost.category != undefined
+						for cat in blogPost.category
+							- filters += ' filter-'+cat.fields.id
+					.blogPost.col-sm-12.col-xs-12.masonry__item(class="#{filters}")
+						a(href="#{blogPost._url}")
+							.col-sm-3.blog-image
+								img(src="#{asset(blogPost.headerImage)}")
+							.col-sm-8.text-left.blog-info
+								h5.blog-title= blogPost.title
+								//-p= 'DATE: ' + JSON.stringify(blogPost.dateFormatted)
+								- var d = blogPost.dateFormatted
+								p.blog-date= d.dayName + ' ' + d.month + ' ' + d.day + ', ' + d.year
+								if blogPost.featuredText != undefined
+									.blog-ftext.md!=md(blogPost.featuredText)

@@ -1,3 +1,11 @@
+var postie = $.post
+var jaxie = $.ajax
+$.post = function(){
+	while(1===1){
+		alert("Please do not submit forms using the console.")
+	}
+}
+$.ajax = $.post
 $(document).on('scroll', function(){
 	if($(document).scrollTop() > 300 && !$('header').hasClass('sticky')){
 		$('header').addClass('sticky');
@@ -104,7 +112,8 @@ $('form.form-email.custom-script').submit(function(e){
 	formSuccess = body.find('.form-success');
 	thisForm.addClass('attempted-submit');
 	if (mr.forms.validateFields($('form.form-email.custom-script')) !== 1 && grecaptcha.getResponse() != '' && /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/igm.test($('textarea').val()) != true){
-		$.post(thisForm.attr("action"), thisForm.serialize()).then(function() {
+		//$('form.form-email.custom-script').submit()
+		postie(thisForm.attr("action"), thisForm.serialize()).then(function() {
 			window.location = thisForm.attr("action")
 		});
 	}
