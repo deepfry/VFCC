@@ -101,13 +101,22 @@ if entry.sections != undefined
 							.content-block
 								.row
 									.blogPost.col-sm-12.col-xs-12
-										a(href="#{block.fields.url}" target="_blank")
-											.col-sm-3.blog-image
-												img(src="#{asset(block.fields.image)}")
-											.col-sm-8.text-left.blog-info
-												h5.blog-title= block.fields.title
-												if block.fields.description != undefined
-													.blog-ftext.md!=md(block.fields.description)
+										if block.fields.url != undefined
+											a(href="#{block.fields.url}" target="_blank")
+												.col-sm-3.blog-image
+													img(src="#{asset(block.fields.image)}")
+												.col-sm-8.text-left.blog-info
+													h5.blog-title= block.fields.title
+													if block.fields.description != undefined
+														.blog-ftext.md!=md(block.fields.description)
+										else
+											a(href="#{asset(block.fields.image)}" data-lightbox="true")
+												.col-sm-3.blog-image
+													img(src="#{asset(block.fields.image)}")
+												.col-sm-8.text-left.blog-info
+													h5.blog-title= block.fields.title
+													if block.fields.description != undefined
+														.blog-ftext.md!=md(block.fields.description)
 
 						else
 							- console.log('unrecognized block section')
