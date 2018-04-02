@@ -1,11 +1,15 @@
-// var postie = $.post
-// var jaxie = $.ajax
-// $.post = function(){
-// 	while(1===1){
-// 		alert("Please do not submit forms using the console.")
-// 	}
-// }
-// $.ajax = $.post
+const postie = $.post;
+const jaxie = $.ajax;
+const huehue = new XMLHttpRequest();
+$.post = function(){
+	console.log("POST rekt email bruh")
+}
+$.ajax = function(){
+	console.log("AJAX rekt email bruh")
+}
+var XMLHttpRequest = function(){
+	console.log("XML rekt email bruh")
+}
 $(document).on('scroll', function(){
 	if($(document).scrollTop() > 300 && !$('header').hasClass('sticky')){
 		$('header').addClass('sticky');
@@ -100,9 +104,9 @@ $('form.form-email.custom-script').submit(function(e){
 	submitButton.attr('data-text', submitButton.text());
 	errorText = thisForm.attr('data-error') ? thisForm.attr('data-error') : "Please fill all fields correctly";
 	successText = thisForm.attr('data-success') ? thisForm.attr('data-success') : "Thanks, we'll be in touch shortly";
-	// if (grecaptcha.getResponse() === ''){
-	// 	errorText = 'Please complete captcha'
-	// }
+	if (grecaptcha.getResponse() === ''){
+		errorText = 'Please complete captcha'
+	}
 	if (/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/igm.test($('textarea').val()) === true){
 		errorText = 'Please do not include URLs in the message body'
 	}
@@ -111,23 +115,48 @@ $('form.form-email.custom-script').submit(function(e){
 	formError = body.find('.form-error');
 	formSuccess = body.find('.form-success');
 	thisForm.addClass('attempted-submit');
-	if (mr.forms.validateFields($('form.form-email.custom-script')) !== 1 && /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/igm.test($('textarea').val()) != true){
+	if (mr.forms.validateFields($('form.form-email.custom-script')) !== 1 && grecaptcha.getResponse() != '' && /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/igm.test($('textarea').val()) != true){
 		thisForm.find('input,textarea').prop('readonly','true')
 		thisForm.find("button").prop("disabled","true")
-		$.post(formAction, thisForm.serialize(), function(res){
-			//alert(JSON.stringify(res))
-			if(res.status == "success"){
+		// $('form.form-email.custom-script').unbind('submit').submit()
+		// console.log('email sent')
+		// window.location = '/thankyou'
+		// jaxie({
+		// 	url:formAction,
+		// 	type: 'post',
+		// 	success:function(){
+		// 		console.log('email sent')
+		// 	}
+		// })
+		// jaxie(formAction, thisForm.serialize(), function(res){
+		// 	//alert(JSON.stringify(res))
+		// 	if(res.status == "success"){
+		// 		window.location = '/thankyou'
+		// 	}
+		// 	else {
+		// 		thisForm.find('input,textarea').prop('readonly','false')
+		// 		thisForm.find("button").prop("disabled","false")
+		// 		formError.html('Something went wrong sending the email...')
+		// 		mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500)
+		// 	}
+		// })
+			var http = huehue;
+			var params = new FormData(document.getElementById('contact-form'))
+			http.open("POST", formAction, true);
+			http.send(params);
+			http.onload = function() {
 				window.location = '/thankyou'
+				// var res = JSON.parse(http.responseText)
+				// if(res.status == "success"){
+				// 
+				// }
+				// else{
+				// 	thisForm.find('input,textarea').prop('readonly','false')
+				// 	thisForm.find("button").prop("disabled","false")
+				// 	formError.html('Something went wrong sending the email...')
+				// 	mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500)
+				// }
 			}
-		})
-		
-			// var http = new XMLHttpRequest();
-			// var params = thisForm.serialize()
-			// http.open("POST", formAction, true);
-			// http.send(params);
-			// http.onload = function() {
-			// 	alert(http.responseText);
-			// }
 		
 		//$('form.form-email.custom-script').submit()
 		//return true
