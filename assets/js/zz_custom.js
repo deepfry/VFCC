@@ -1,11 +1,11 @@
-var postie = $.post
-var jaxie = $.ajax
-$.post = function(){
-	while(1===1){
-		alert("Please do not submit forms using the console.")
-	}
-}
-$.ajax = $.post
+// var postie = $.post
+// var jaxie = $.ajax
+// $.post = function(){
+// 	while(1===1){
+// 		alert("Please do not submit forms using the console.")
+// 	}
+// }
+// $.ajax = $.post
 $(document).on('scroll', function(){
 	if($(document).scrollTop() > 300 && !$('header').hasClass('sticky')){
 		$('header').addClass('sticky');
@@ -66,8 +66,8 @@ $(window).on('resize',function(){
 
 	  // If the count down is finished, write some text
 	  if (distance < 0) {
-	    clearInterval(x);
-	    //document.getElementById("demo").innerHTML = "EXPIRED";
+		clearInterval(x);
+		//document.getElementById("demo").innerHTML = "EXPIRED";
 	  }
 	}, 1000);
 
@@ -86,7 +86,7 @@ $(document).ready(function(){
 
 
 $('form.form-email.custom-script').submit(function(e){
-	
+	e.preventDefault()
 	var body          = $('body'),
 		thisForm      = $(e.target).closest('form'),
 		formAction    = typeof thisForm.attr('action') !== typeof undefined ? thisForm.attr('action') : "",
@@ -100,9 +100,9 @@ $('form.form-email.custom-script').submit(function(e){
 	submitButton.attr('data-text', submitButton.text());
 	errorText = thisForm.attr('data-error') ? thisForm.attr('data-error') : "Please fill all fields correctly";
 	successText = thisForm.attr('data-success') ? thisForm.attr('data-success') : "Thanks, we'll be in touch shortly";
-	if (grecaptcha.getResponse() === ''){
-		errorText = 'Please complete captcha'
-	}
+	// if (grecaptcha.getResponse() === ''){
+	// 	errorText = 'Please complete captcha'
+	// }
 	if (/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/igm.test($('textarea').val()) === true){
 		errorText = 'Please do not include URLs in the message body'
 	}
@@ -111,16 +111,33 @@ $('form.form-email.custom-script').submit(function(e){
 	formError = body.find('.form-error');
 	formSuccess = body.find('.form-success');
 	thisForm.addClass('attempted-submit');
-	if (mr.forms.validateFields($('form.form-email.custom-script')) !== 1 && grecaptcha.getResponse() != '' && /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/igm.test($('textarea').val()) != true){
+	if (mr.forms.validateFields($('form.form-email.custom-script')) !== 1 && /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/igm.test($('textarea').val()) != true){
+		thisForm.find('input,textarea').prop('readonly','true')
+		thisForm.find("button").prop("disabled","true")
+		$.post(formAction, thisForm.serialize(), function(res){
+			//alert(JSON.stringify(res))
+			if(res.status == "success"){
+				window.location = '/thankyou'
+			}
+		})
+		
+			// var http = new XMLHttpRequest();
+			// var params = thisForm.serialize()
+			// http.open("POST", formAction, true);
+			// http.send(params);
+			// http.onload = function() {
+			// 	alert(http.responseText);
+			// }
+		
 		//$('form.form-email.custom-script').submit()
-		return true
+		//return true
 		// postie(thisForm.attr("action"), thisForm.serialize()).then(function() {
 		// 	window.location = thisForm.attr("action")
 		// });
 	}
 	else{
-		mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500) 
-		e.preventDefault();
+		mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500)
+		//e.preventDefault();
 	}
 
 })
