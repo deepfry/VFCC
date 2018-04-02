@@ -1,6 +1,6 @@
-const postie = $.post;
-const jaxie = $.ajax;
-const huehue = new XMLHttpRequest();
+var postie = $.post;
+var jaxie = $.ajax;
+var huehue = new XMLHttpRequest();
 $.post = function(){
 	console.log("POST rekt email bruh")
 }
