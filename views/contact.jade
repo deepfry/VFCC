@@ -16,6 +16,7 @@ block content
 					h4.color-purple We would love to hear from you!
 			.row
 				.col-sm-8.col-center
+					//- NETLIFY FORM
 					form#contact-form.form-email.custom-script(name="Contact", method="POST", action='/thankyou', netlify)
 						//- netlify-honeypot="bot-field",
 						//- .col-sm-12.hidden
@@ -38,3 +39,27 @@ block content
 						.float-right(style="padding-right:15px;")
 							button.btn.orange(type='submit' style="position:relative;z-index:9;")
 								span.btn__text Send
+					//- JUMPROCK FORM
+					//- form#contact-form.form-email.custom-script(name="Contact", method="post", action='https://jumprock.co/mail/vfcc')
+					//- 	input(type="text" name="trapit" value="" style="display:none")
+					//- 	//- netlify-honeypot="bot-field",
+					//- 	//- .col-sm-12.hidden
+					//- 	//- 	label don't fill this out:
+					//- 	//- 	input(name='bot-field')
+					//- 	.col-sm-4
+					//- 		label Your name
+					//- 		input.name.validate-required(type='text', name='name')
+					//- 	.col-sm-4
+					//- 		label Your email
+					//- 		input.email.validate-required.validate-email(type='text', name='email')
+					//- 	.col-sm-4
+					//- 		label Your phone
+					//- 		input.phone.validate-number-dash(type='text', name='phone')
+					//- 	.col-sm-12
+					//- 		label Message
+					//- 		textarea.message.validate-required(type='text', name='message')
+					//- 	//-.col-sm-12
+					//- 		div(netlify-recaptcha)
+					//- 	.float-right(style="padding-right:15px;")
+					//- 		button.btn.orange(type='submit' style="position:relative;z-index:9;")
+					//- 			span.btn__text Send
