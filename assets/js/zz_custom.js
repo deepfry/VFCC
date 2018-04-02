@@ -90,6 +90,7 @@ $(document).ready(function(){
 
 
 $('form.form-email.custom-script').submit(function(e){
+	//form validation stuff
 	e.preventDefault()
 	var body          = $('body'),
 		thisForm      = $(e.target).closest('form'),
@@ -99,14 +100,15 @@ $('form.form-email.custom-script').submit(function(e){
 		originalError = thisForm.attr('original-error'),
 		captchaUsed   = thisForm.find('div.recaptcha').length ? true:false,
 		successRedirect, formError, formSuccess, errorText, successText;
-
 	body.find('.form-error, .form-success').remove();
 	submitButton.attr('data-text', submitButton.text());
 	errorText = thisForm.attr('data-error') ? thisForm.attr('data-error') : "Please fill all fields correctly";
 	successText = thisForm.attr('data-success') ? thisForm.attr('data-success') : "Thanks, we'll be in touch shortly";
+	// change errortext based captcha
 	if (grecaptcha.getResponse() === ''){
 		errorText = 'Please complete captcha'
 	}
+	// change errortext based URLs within message
 	if (/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/igm.test($('textarea').val()) === true){
 		errorText = 'Please do not include URLs in the message body'
 	}
@@ -115,6 +117,7 @@ $('form.form-email.custom-script').submit(function(e){
 	formError = body.find('.form-error');
 	formSuccess = body.find('.form-success');
 	thisForm.addClass('attempted-submit');
+	// big-daddy validation statement
 	if (mr.forms.validateFields($('form.form-email.custom-script')) !== 1 && grecaptcha.getResponse() != '' && /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/igm.test($('textarea').val()) != true){
 		thisForm.find('input,textarea').prop('readonly','true')
 		thisForm.find("button").prop("disabled","true")
