@@ -1,15 +1,4 @@
-var postie = $.post;
-var jaxie = $.ajax;
-var huehue = new XMLHttpRequest();
-$.post = function(){
-	console.log("POST rekt email bruh")
-}
-$.ajax = function(){
-	console.log("AJAX rekt email bruh")
-}
-var XMLHttpRequest = function(){
-	console.log("XML rekt email bruh")
-}
+
 $(document).on('scroll', function(){
 	if($(document).scrollTop() > 300 && !$('header').hasClass('sticky')){
 		$('header').addClass('sticky');
@@ -151,7 +140,7 @@ $('form.form-email.custom-script').submit(function(e){
 				window.location = '/thankyou'
 				// var res = JSON.parse(http.responseText)
 				// if(res.status == "success"){
-				// 
+				//
 				// }
 				// else{
 				// 	thisForm.find('input,textarea').prop('readonly','false')
@@ -160,7 +149,7 @@ $('form.form-email.custom-script').submit(function(e){
 				// 	mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500)
 				// }
 			}
-		
+
 		//$('form.form-email.custom-script').submit()
 		//return true
 		// postie(thisForm.attr("action"), thisForm.serialize()).then(function() {
