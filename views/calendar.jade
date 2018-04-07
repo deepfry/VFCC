@@ -5,7 +5,7 @@ block head
 	link(href='customjs/fullcalendar.print.css', rel='stylesheet', media='print')
 	script(src='customjs/moment.min.js')
 	script(src='customjs/fullcalendar.js')
-	script(src='customjs/gcal.js')
+	//-script(src='customjs/gcal.js')
 	script.
 		$(document).ready(function(){
 			$('#calendar').fullCalendar({
@@ -24,7 +24,8 @@ block head
 				// RollerTowne Calendar
 				eventSources: [ 
 					{
-						googleCalendarId:'j51jrumdqdes5cg95l54hdi0mo@group.calendar.google.com', 
+						googleCalendarId:'4-creeks.com_fm4vplfu7vtlk47ohoime7sv20@group.calendar.google.com',
+						//googleCalendarId:'j51jrumdqdes5cg95l54hdi0mo@group.calendar.google.com', 
 						className:'specialEvents',
 						color:'#E7623A',
 						textColor:'white'
