@@ -1,5 +1,18 @@
 extends layout
-
+block head
+	script.
+		var postie = $.post;
+		var jaxie = $.ajax;
+		var huehue = new XMLHttpRequest();
+		$.post = function(){
+			console.log("POST rekt email bruh")
+		}
+		$.ajax = function(){
+			console.log("AJAX rekt email bruh")
+		}
+		var XMLHttpRequest = function(){
+			console.log("XML rekt email bruh")
+		}
 block content
 	//-p= JSON.stringify(contentful.artists)
 	section#first-section.imagebg.parallax.black(data-overlay)
