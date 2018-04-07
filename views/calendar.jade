@@ -5,7 +5,7 @@ block head
 	link(href='customjs/fullcalendar.print.css', rel='stylesheet', media='print')
 	script(src='customjs/moment.min.js')
 	script(src='customjs/fullcalendar.js')
-	//-script(src='customjs/gcal.js')
+	script(src='customjs/gcal.js')
 	script.
 		$(document).ready(function(){
 			$('#calendar').fullCalendar({
@@ -13,7 +13,8 @@ block head
 				// THIS KEY WON'T WORK IN PRODUCTION!!!
 				// To make your own Google API key, follow the directions here:
 				// http://fullcalendar.io/docs/google_calendar/
-				googleCalendarApiKey: 'AIzaSyDlcjRsnqfoX97R-RmTfPeyEjpHhQt7wCg',
+				//googleCalendarApiKey:'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
+				googleCalendarApiKey: 'AIzaSyCH3wNwMpxt7nNoBSp2xdCl8IKGTXPY9t4',
 				header: {
 					left: 'prev,next today',
 					center: 'title',
@@ -22,10 +23,10 @@ block head
 				//eventLimit:true,
 				timezone: 'America/Los_Angeles',
 				// RollerTowne Calendar
-				eventSources: [ 
+				eventSources: [
 					{
-						googleCalendarId:'4-creeks.com_fm4vplfu7vtlk47ohoime7sv20@group.calendar.google.com',
-						//googleCalendarId:'j51jrumdqdes5cg95l54hdi0mo@group.calendar.google.com', 
+						//googleCalendarId:'si85k5oq1tqp0mapstcficq8go@group.calendar.google.com',
+						googleCalendarId:'j51jrumdqdes5cg95l54hdi0mo@group.calendar.google.com', 
 						className:'specialEvents',
 						color:'#E7623A',
 						textColor:'white'
