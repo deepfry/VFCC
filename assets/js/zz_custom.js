@@ -1,23 +1,23 @@
-var postie = $.post;
-var jaxie = $.ajax;
-var huehue = new XMLHttpRequest();
-$.post = function(){
-	console.log("POST rekt email bruh")
-}
-$.ajax = function(){
-	console.log("AJAX rekt email bruh")
-}
-var XMLHttpRequest = function(){
-	console.log("XML rekt email bruh")
-}
-$(document).on('scroll', function(){
-	if($(document).scrollTop() > 300 && !$('header').hasClass('sticky')){
-		$('header').addClass('sticky');
-	}
-	else if ($(document).scrollTop() < 300 && $('header').hasClass('sticky')){
-		$('header').removeClass('sticky');
-	}
-})
+// var postie = $.post;
+// var jaxie = $.ajax;
+// var huehue = new XMLHttpRequest();
+// $.post = function(){
+// 	console.log("POST rekt email bruh")
+// }
+// $.ajax = function(){
+// 	console.log("AJAX rekt email bruh")
+// }
+// var XMLHttpRequest = function(){
+// 	console.log("XML rekt email bruh")
+// }
+// $(document).on('scroll', function(){
+// 	if($(document).scrollTop() > 300 && !$('header').hasClass('sticky')){
+// 		$('header').addClass('sticky');
+// 	}
+// 	else if ($(document).scrollTop() < 300 && $('header').hasClass('sticky')){
+// 		$('header').removeClass('sticky');
+// 	}
+// })
 
 $(document).on('mousedown','a',function(e){
 	if ($(this).attr('href') != undefined && $(this).attr('href') != '' && /(#\w+$)/.test($(this).attr('href'))){
@@ -43,43 +43,43 @@ $(window).on('resize',function(){
 	}
 })
 	// Set the date we're counting down to
-	var countDownDate = ''
-
-	// Update the count down every 1 second
-	var x = setInterval(function() {
-
-	  // Get todays date and time
-	  var now = new Date().getTime();
-
-	  // Find the distance between now an the count down date
-	  var distance = countDownDate - now;
-
-	  // Time calculations for days, hours, minutes and seconds
-	  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-	  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-	  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-	  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-	  // Display the result in the element with id="demo"
-	  console.log(days + "d " + hours + "h " + minutes + "m " + seconds + "s ")
-	  $('#countdown-timer .countdown-days').html(days)
-	  $('#countdown-timer .countdown-hours').html(hours)
-	  $('#countdown-timer .countdown-minutes').html(minutes)
-	  $('#countdown-timer .countdown-seconds').html(seconds)
-	  //document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-	  // If the count down is finished, write some text
-	  if (distance < 0) {
-		clearInterval(x);
-		//document.getElementById("demo").innerHTML = "EXPIRED";
-	  }
-	}, 1000);
+	// var countDownDate = ''
+	// 
+	// // Update the count down every 1 second
+	// var x = setInterval(function() {
+	// 
+	//   // Get todays date and time
+	//   var now = new Date().getTime();
+	// 
+	//   // Find the distance between now an the count down date
+	//   var distance = countDownDate - now;
+	// 
+	//   // Time calculations for days, hours, minutes and seconds
+	//   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	//   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	//   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	//   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+	// 
+	//   // Display the result in the element with id="demo"
+	//   console.log(days + "d " + hours + "h " + minutes + "m " + seconds + "s ")
+	//   $('#countdown-timer .countdown-days').html(days)
+	//   $('#countdown-timer .countdown-hours').html(hours)
+	//   $('#countdown-timer .countdown-minutes').html(minutes)
+	//   $('#countdown-timer .countdown-seconds').html(seconds)
+	//   //document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+	// 
+	//   // If the count down is finished, write some text
+	//   if (distance < 0) {
+	// 	clearInterval(x);
+	// 	//document.getElementById("demo").innerHTML = "EXPIRED";
+	//   }
+	// }, 1000);
 
 
 $(document).ready(function(){
-	if ($('#date-container').attr('data-date') != undefined){
-		countDownDate = new Date($('#date-container').attr('data-date'))
-	}
+	// if ($('#date-container').attr('data-date') != undefined){
+	// 	countDownDate = new Date($('#date-container').attr('data-date'))
+	// }
 	if (window.location.hash){
 		$('html, body').stop().animate({
 			scrollTop: $(window.location.hash).offset().top -100,
@@ -105,9 +105,9 @@ $('form.form-email.custom-script').submit(function(e){
 	errorText = thisForm.attr('data-error') ? thisForm.attr('data-error') : "Please fill all fields correctly";
 	successText = thisForm.attr('data-success') ? thisForm.attr('data-success') : "Thanks, we'll be in touch shortly";
 	// change errortext based captcha
-	if (grecaptcha.getResponse() === ''){
-		errorText = 'Please complete captcha'
-	}
+	// if (grecaptcha.getResponse() === ''){
+	// 	errorText = 'Please complete captcha'
+	// }
 	// change errortext based URLs within message
 	if (/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/igm.test($('textarea').val()) === true){
 		errorText = 'Please do not include URLs in the message body'
@@ -118,19 +118,52 @@ $('form.form-email.custom-script').submit(function(e){
 	formSuccess = body.find('.form-success');
 	thisForm.addClass('attempted-submit');
 	// big-daddy validation statement
-	if (mr.forms.validateFields($('form.form-email.custom-script')) !== 1 && grecaptcha.getResponse() != '' && /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/igm.test($('textarea').val()) != true){
+	if (mr.forms.validateFields($('form.form-email.custom-script')) !== 1 && /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/igm.test($('textarea').val()) != true){
 		thisForm.find('input,textarea').prop('readonly','true')
 		thisForm.find("button").prop("disabled","true")
-		// $('form.form-email.custom-script').unbind('submit').submit()
-		// console.log('email sent')
-		// window.location = '/thankyou'
+		//$('form.form-email.custom-script').unbind('submit').submit()
+		//console.log('email sent')
+		//window.location = '/thankyou'
+		
+		
+		
+		// WORKING AJAX SCRIPT
 		// jaxie({
-		// 	url:formAction,
+		// 	url:'http://mailer.deepfry.me/vfcc.php',
 		// 	type: 'post',
-		// 	success:function(){
+		// 	data: thisForm.serialize(),
+		// 	success:function(res){
 		// 		console.log('email sent')
+		// 		console.log(res)
 		// 	}
+		// }).done(function(res){
+		// 	console.log(res)
+		// }).fail(function(res){
+		// 	mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500)
+		// 	console.log(res)
 		// })
+		
+		
+		
+		var http = huehue;
+		var params = new FormData(document.getElementById('contact-form'))
+		http.onerror = function(res){
+			thisForm.find('input,textarea').prop('readonly','false')
+			thisForm.find("button").prop("disabled",false)
+			formError.html('Sorry, something went wrong sending the email...')
+			mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500)
+			//console.log(res)
+		}
+		http.onreadystatechange = function(){
+			if (this.readyState == 4 && this.status == 200) {
+				window.location = '/thankyou'
+			}
+		}
+		http.open("POST", 'http://mailer.deepfry.me/vfcc.php', true);
+		http.send(params);
+		
+		
+		
 		// jaxie(formAction, thisForm.serialize(), function(res){
 		// 	//alert(JSON.stringify(res))
 		// 	if(res.status == "success"){
@@ -143,29 +176,48 @@ $('form.form-email.custom-script').submit(function(e){
 		// 		mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500)
 		// 	}
 		// })
-			var http = huehue;
-			var params = new FormData(document.getElementById('contact-form'))
-			http.open("POST", formAction, true);
-			http.send(params);
-			http.onload = function() {
-				window.location = '/thankyou'
-				// var res = JSON.parse(http.responseText)
-				// if(res.status == "success"){
-				// 
-				// }
-				// else{
-				// 	thisForm.find('input,textarea').prop('readonly','false')
-				// 	thisForm.find("button").prop("disabled","false")
-				// 	formError.html('Something went wrong sending the email...')
-				// 	mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500)
-				// }
-			}
-		
+			// var http = huehue;
+			// var params = new FormData(document.getElementById('contact-form'))
+			// http.open("POST", 'https://hooks.slack.com/services/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', true);
+			// http.send(params);
+			// http.onload = function() {
+			// 	//window.location = '/thankyou'
+			// 
+			// 	// var res = JSON.parse(http.responseText)
+			// 	// if(res.status == "success"){
+			// 	// 
+			// 	// }
+			// 	// else{
+			// 	// 	thisForm.find('input,textarea').prop('readonly','false')
+			// 	// 	thisForm.find("button").prop("disabled","false")
+			// 	// 	formError.html('Something went wrong sending the email...')
+			// 	// 	mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500)
+			// 	// }
+			// }
+		// function objectifyForm(formArray) {//serialize data function
+		// 
+		//   var returnArray = {};
+		//   for (var i = 0; i < formArray.length; i++){
+		//     returnArray[formArray[i]['name']] = formArray[i]['value'];
+		//   }
+		//   return returnArray;
+		// }
 		//$('form.form-email.custom-script').submit()
 		//return true
-		// postie(thisForm.attr("action"), thisForm.serialize()).then(function() {
-		// 	window.location = thisForm.attr("action")
-		// });
+		// $.ajax({
+		// 	data:'payload='+ JSON.stringify({
+		// 		"text":"testing"
+		// 	}),
+		// 	dataType:"json",
+		// 	processData:"false",
+		// 	type:'POST',
+		// 	url:SLACKURL,
+		// 	success:function(res){
+		// 		console.log(res)
+		// 	}
+		// }).fail(function(res){
+		// 	console.log(res)
+		// })
 	}
 	else{
 		mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500)
