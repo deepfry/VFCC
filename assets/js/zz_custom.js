@@ -130,7 +130,7 @@ $('form.form-email.custom-script').submit(function(e){
 		// 	success:function(){
 		// 		console.log('email sent')
 		// 	}
-		// }) 
+		// })
 		// jaxie(formAction, thisForm.serialize(), function(res){
 		// 	//alert(JSON.stringify(res))
 		// 	if(res.status == "success"){
