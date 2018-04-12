@@ -30,11 +30,11 @@ block content
 			.row
 				.col-sm-8.col-center
 					//- NETLIFY FORM
-					form#contact-form.form-email.custom-script(name="Contact", method="POST", action='/thankyou')
+					form#contact-form.form-email.custom-script(name="Contact", method="POST", action='/thankyou', netlify)
 						//- netlify-honeypot="bot-field",
-						.col-sm-12.hidden
-							label don't fill this out:
-							input(name='url')
+						//- .col-sm-12.hidden
+						//- 	label don't fill this out:
+						//- 	input(name='bot-field')
 						.col-sm-4
 							label Your name
 							input.name.validate-required(type='text', name='name')
@@ -43,7 +43,7 @@ block content
 							input.email.validate-required.validate-email(type='text', name='email')
 						.col-sm-4
 							label Your phone
-							input.phone.validate-number-dash(type='text', name='phone')
+							input.phone.validate-number-dash(type='text', name='phone-number')
 						.col-sm-12
 							label Message
 							textarea.message.validate-required(type='text', name='message')
