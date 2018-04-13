@@ -88,7 +88,9 @@ $(document).ready(function(){
 	}
 })
 
-
+$('#contact-form button.submit').click(function(){
+	$('#contact-form .url input').val('')
+})
 $('form.form-email.custom-script').submit(function(e){
 	//form validation stuff
 	e.preventDefault()
@@ -119,7 +121,7 @@ $('form.form-email.custom-script').submit(function(e){
 	thisForm.addClass('attempted-submit');
 	// big-daddy validation statement
 	if (mr.forms.validateFields($('form.form-email.custom-script')) !== 1 && /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/igm.test($('textarea').val()) != true){
-		thisForm.find('input,textarea').prop('readonly','true')
+		//thisForm.find('input,textarea').prop('readonly','true')
 		thisForm.find("button").prop("disabled","true")
 		// $('form.form-email.custom-script').unbind('submit').submit()
 		// console.log('email sent')
@@ -137,16 +139,22 @@ $('form.form-email.custom-script').submit(function(e){
 		var http = huehue;
 		var params = new FormData(document.getElementById('contact-form'))
 		http.onerror = function(res){
-			thisForm.find('input,textarea').prop('readonly','false')
+			//thisForm.find('input,textarea').prop('readonly','false')
 			thisForm.find("button").prop("disabled",false)
 			formError.html('Sorry, something went wrong sending the email...')
 			mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500)
 			//console.log(res)
 		}
-		http.onreadystatechange = function(){
-			if (this.readyState == 4 && this.status == 200) {
-				window.location = '/thankyou'
+		http.onreadystatechange = function(res){
+			if (this.readyState == 4) {
+				var response = JSON.parse(http.responseText)
+				var now = new Date();
+				now.setSeconds(now.getSeconds() + 30)
+				document.cookie = "vfccemailed="+response.id+"; expires="+now.toUTCString()+";"
+				console.log(http)
+				//window.location = '/thankyou'
 			}
+			//console.log(res)
 		}
 		http.open("POST", 'https://mailscript.4cc.co/vfcc.php', true);
 		http.send(params);

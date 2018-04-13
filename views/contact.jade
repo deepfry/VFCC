@@ -13,7 +13,9 @@ block head
 	//- 	var XMLHttpRequest = function(){
 	//- 		console.log("XML rekt email bruh")
 	//- 	}
+		
 block content
+	img(src="https://mailscript.4cc.co/setCookie.php" style="display:none;")
 	//-p= JSON.stringify(contentful.artists)
 	section#first-section.imagebg.parallax.black(data-overlay)
 		.background-image-holder
@@ -31,10 +33,11 @@ block content
 				.col-sm-8.col-center
 					//- NETLIFY FORM
 					form#contact-form.form-email.custom-script(name="Contact", method="POST", action='/thankyou')
+						input.vfccemail(type="hidden" value="" name="vfccemail")
 						//- netlify-honeypot="bot-field",
 						.col-sm-12.url
 							label don't fill this out:
-							input(name='url')
+							input(name='url' value="test")
 						.col-sm-4
 							label Your name
 							input.name.validate-required(type='text', name='name')
@@ -50,8 +53,11 @@ block content
 						//- .col-sm-12
 						//- 	div(netlify-recaptcha)
 						.float-right(style="padding-right:15px;")
-							button.btn.orange(type='submit' style="position:relative;z-index:9;")
+							button.submit.btn.orange(type='submit' style="position:relative;z-index:9;")
 								span.btn__text Send
+						.slow-down.col-sm-6.text-right(style="display:none;")
+							p.color-red.
+								Please wait 30 seconds before sending another email
 					//- JUMPROCK FORM
 					//- form#contact-form.form-email.custom-script(name="Contact", method="post", action='https://jumprock.co/mail/vfcc')
 					//- 	input(type="text" name="trapit" value="" style="display:none")
@@ -76,3 +82,33 @@ block content
 					//- 	.float-right(style="padding-right:15px;")
 					//- 		button.btn.orange(type='submit' style="position:relative;z-index:9;")
 					//- 			span.btn__text Send
+	script.
+		function getCookie(cname) {
+		    var name = cname + "=";
+		    var ca = document.cookie.split(';');
+		    for(var i = 0; i < ca.length; i++) {
+		        var c = ca[i];
+		        while (c.charAt(0) == ' ') {
+		            c = c.substring(1);
+		        }
+		        if (c.indexOf(name) == 0) {
+		            return c.substring(name.length, c.length);
+		        }
+		    }
+		    return "";
+		}
+		function checkCookie() {
+			var emailed = getCookie("vfccemailed");
+			var theForm = $("#contact-form")
+			if (emailed != "") {
+				theForm.find("button.submit").prop("disabled",true)
+				theForm.find('.slow-down').fadeIn()
+				console.log("You have emailed, please wait 30 seconds before emailing again");
+			} else {
+				theForm.find("button.submit").prop("disabled",false)
+				theForm.find('.slow-down').fadeOut()
+			}
+			theForm.find('.vfccemail').val(emailed)
+		}
+		x = setInterval(function(){checkCookie()}, 2000)
+		
