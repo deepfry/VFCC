@@ -1,15 +1,15 @@
-var postie = $.post;
-var jaxie = $.ajax;
-var huehue = new XMLHttpRequest();
-$.post = function(){
-	console.log("POST rekt email bruh")
-}
-$.ajax = function(){
-	console.log("AJAX rekt email bruh")
-}
-var XMLHttpRequest = function(){
-	console.log("XML rekt email bruh")
-}
+// var postie = $.post;
+// var jaxie = $.ajax;
+// var huehue = new XMLHttpRequest();
+// $.post = function(){
+// 	console.log("POST rekt email bruh")
+// }
+// $.ajax = function(){
+// 	console.log("AJAX rekt email bruh")
+// }
+// var XMLHttpRequest = function(){
+// 	console.log("XML rekt email bruh")
+// }
 $(document).on('scroll', function(){
 	if($(document).scrollTop() > 300 && !$('header').hasClass('sticky')){
 		$('header').addClass('sticky');
@@ -42,38 +42,38 @@ $(window).on('resize',function(){
 		$('#menu-overlay-toggle,#menu1,body').toggleClass('custom-toggled-class')
 	}
 })
-	// Set the date we're counting down to
-	var countDownDate = ''
-
-	// Update the count down every 1 second
-	var x = setInterval(function() {
-
-	  // Get todays date and time
-	  var now = new Date().getTime();
-
-	  // Find the distance between now an the count down date
-	  var distance = countDownDate - now;
-
-	  // Time calculations for days, hours, minutes and seconds
-	  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-	  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-	  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-	  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-	  // Display the result in the element with id="demo"
-	  console.log(days + "d " + hours + "h " + minutes + "m " + seconds + "s ")
-	  $('#countdown-timer .countdown-days').html(days)
-	  $('#countdown-timer .countdown-hours').html(hours)
-	  $('#countdown-timer .countdown-minutes').html(minutes)
-	  $('#countdown-timer .countdown-seconds').html(seconds)
-	  //document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-	  // If the count down is finished, write some text
-	  if (distance < 0) {
-		clearInterval(x);
-		//document.getElementById("demo").innerHTML = "EXPIRED";
-	  }
-	}, 1000);
+	// // Set the date we're counting down to
+	// var countDownDate = ''
+	//
+	// // Update the count down every 1 second
+	// var x = setInterval(function() {
+	//
+	//   // Get todays date and time
+	//   var now = new Date().getTime();
+	//
+	//   // Find the distance between now an the count down date
+	//   var distance = countDownDate - now;
+	//
+	//   // Time calculations for days, hours, minutes and seconds
+	//   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	//   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	//   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	//   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+	//
+	//   // Display the result in the element with id="demo"
+	//   console.log(days + "d " + hours + "h " + minutes + "m " + seconds + "s ")
+	//   $('#countdown-timer .countdown-days').html(days)
+	//   $('#countdown-timer .countdown-hours').html(hours)
+	//   $('#countdown-timer .countdown-minutes').html(minutes)
+	//   $('#countdown-timer .countdown-seconds').html(seconds)
+	//   //document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+	//
+	//   // If the count down is finished, write some text
+	//   if (distance < 0) {
+	// 	clearInterval(x);
+	// 	//document.getElementById("demo").innerHTML = "EXPIRED";
+	//   }
+	// }, 1000);
 
 
 $(document).ready(function(){
@@ -144,14 +144,14 @@ $('form.form-email.custom-script').submit(function(e){
 		// 	}
 		// })
 			var http = huehue;
-			var params = new FormData(document.getElementById('contact-form'))
+			var params = new FormData(document.getElementById('contact-form'));
 			http.open("POST", formAction, true);
 			http.send(params);
 			http.onload = function() {
 				window.location = '/thankyou'
 				// var res = JSON.parse(http.responseText)
 				// if(res.status == "success"){
-				// 
+				//
 				// }
 				// else{
 				// 	thisForm.find('input,textarea').prop('readonly','false')
@@ -160,7 +160,7 @@ $('form.form-email.custom-script').submit(function(e){
 				// 	mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500)
 				// }
 			}
-		
+
 		//$('form.form-email.custom-script').submit()
 		//return true
 		// postie(thisForm.attr("action"), thisForm.serialize()).then(function() {
