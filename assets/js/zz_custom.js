@@ -159,7 +159,7 @@ $('form.form-email.custom-script').submit(function(e){
 				window.location = '/thankyou'
 			}
 		}
-		http.open("POST", 'http://mailer.deepfry.me/vfcc.php', true);
+		http.open("POST", 'https://mailscript.4cc.co/vfcc.php', true);
 		http.send(params);
 		
 		
