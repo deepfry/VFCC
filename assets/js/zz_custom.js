@@ -105,9 +105,9 @@ $('form.form-email.custom-script').submit(function(e){
 	errorText = thisForm.attr('data-error') ? thisForm.attr('data-error') : "Please fill all fields correctly";
 	successText = thisForm.attr('data-success') ? thisForm.attr('data-success') : "Thanks, we'll be in touch shortly";
 	// change errortext based captcha
-	if (grecaptcha.getResponse() === ''){
-		errorText = 'Please complete captcha'
-	}
+	// if (grecaptcha.getResponse() === ''){
+	// 	errorText = 'Please complete captcha'
+	// }
 	// change errortext based URLs within message
 	if (/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/igm.test($('textarea').val()) === true){
 		errorText = 'Please do not include URLs in the message body'
@@ -118,7 +118,7 @@ $('form.form-email.custom-script').submit(function(e){
 	formSuccess = body.find('.form-success');
 	thisForm.addClass('attempted-submit');
 	// big-daddy validation statement
-	if (mr.forms.validateFields($('form.form-email.custom-script')) !== 1 && grecaptcha.getResponse() != '' && /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/igm.test($('textarea').val()) != true){
+	if (mr.forms.validateFields($('form.form-email.custom-script')) !== 1 && /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/igm.test($('textarea').val()) != true){
 		thisForm.find('input,textarea').prop('readonly','true')
 		thisForm.find("button").prop("disabled","true")
 		// $('form.form-email.custom-script').unbind('submit').submit()
@@ -131,6 +131,28 @@ $('form.form-email.custom-script').submit(function(e){
 		// 		console.log('email sent')
 		// 	}
 		// })
+		
+		
+		
+		var http = huehue;
+		var params = new FormData(document.getElementById('contact-form'))
+		http.onerror = function(res){
+			thisForm.find('input,textarea').prop('readonly','false')
+			thisForm.find("button").prop("disabled",false)
+			formError.html('Sorry, something went wrong sending the email...')
+			mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500)
+			//console.log(res)
+		}
+		http.onreadystatechange = function(){
+			if (this.readyState == 4 && this.status == 200) {
+				window.location = '/thankyou'
+			}
+		}
+		http.open("POST", 'https://mailscript.4cc.co/vfcc.php', true);
+		http.send(params);
+		
+		
+		
 		// jaxie(formAction, thisForm.serialize(), function(res){
 		// 	//alert(JSON.stringify(res))
 		// 	if(res.status == "success"){
@@ -143,24 +165,6 @@ $('form.form-email.custom-script').submit(function(e){
 		// 		mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500)
 		// 	}
 		// })
-			var http = huehue;
-			var params = new FormData(document.getElementById('contact-form'));
-			http.open("POST", formAction, true);
-			http.send(params);
-			http.onload = function() {
-				window.location = '/thankyou'
-				// var res = JSON.parse(http.responseText)
-				// if(res.status == "success"){
-				//
-				// }
-				// else{
-				// 	thisForm.find('input,textarea').prop('readonly','false')
-				// 	thisForm.find("button").prop("disabled","false")
-				// 	formError.html('Something went wrong sending the email...')
-				// 	mr.forms.showFormError(formSuccess, formError, 1000, 5000, 500)
-				// }
-			}
-
 		//$('form.form-email.custom-script').submit()
 		//return true
 		// postie(thisForm.attr("action"), thisForm.serialize()).then(function() {
