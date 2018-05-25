@@ -133,9 +133,9 @@ $('form.form-email.custom-script').submit(function(e){
 		// 		console.log('email sent')
 		// 	}
 		// })
-		
-		
-		
+
+
+
 		var http = huehue;
 		var params = new FormData(document.getElementById('contact-form'))
 		http.onerror = function(res){
@@ -152,15 +152,15 @@ $('form.form-email.custom-script').submit(function(e){
 				now.setSeconds(now.getSeconds() + 30)
 				document.cookie = "vfccemailed="+response.id+"; expires="+now.toUTCString()+";"
 				console.log(http)
-				//window.location = '/thankyou'
+				window.location = '/thankyou'
 			}
 			//console.log(res)
 		}
 		http.open("POST", 'https://mailscript.4cc.co/vfcc.php', true);
 		http.send(params);
-		
-		
-		
+
+
+
 		// jaxie(formAction, thisForm.serialize(), function(res){
 		// 	//alert(JSON.stringify(res))
 		// 	if(res.status == "success"){
