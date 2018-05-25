@@ -156,7 +156,7 @@ $('form.form-email.custom-script').submit(function(e){
 			}
 			//console.log(res)
 		}
-		http.open("POST", 'https://mailscript.4cc.co/vfcc.php', true);
+		http.open("POST", 'https://deepfry.me/mailer/vfcc.php', true);
 		http.send(params);
 
 
